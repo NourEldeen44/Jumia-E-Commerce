@@ -2,19 +2,26 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
+  faAppleAlt,
+  faAppleWhole,
   faBars,
+  faBarsStaggered,
   faBox,
   faCircleQuestion,
   faCoffee,
   faComment,
+  faComputer,
+  faGamepad,
   faHeart,
   faMagnifyingGlass,
+  faShirt,
   faShoppingBasket,
   faShoppingCart,
   faUser,
   faUserAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import jumialogo from "../../images/Jumia-Logo.png";
+import { NavDropdown } from "react-bootstrap";
 import "./header.css";
 
 const Header = () => {
@@ -27,6 +34,7 @@ const Header = () => {
           position: "fixed",
           backgroundColor: "white",
           width: "100vw",
+          alignContent: "center",
         }}
       >
         <div
@@ -355,6 +363,35 @@ const Header = () => {
               </li>
             </ul>
           </div>
+          <NavDropdown
+            id="nav-dropdown"
+            title={
+              <div class="d-flex flex-column" style={{ color: "orange" }}>
+                <FontAwesomeIcon
+                  className="caticon"
+                  icon={faBarsStaggered}
+                  color="black"
+                  size="2x"
+                />
+                <span className="cattitle">Categories</span>
+              </div>
+            }
+            className="catdrop"
+            menuVariant="light"
+          >
+            <NavDropdown.Item href="Supermarket">
+              <FontAwesomeIcon icon={faAppleWhole} /> <span>Supermarket</span>
+            </NavDropdown.Item>
+            <NavDropdown.Item href="Fashion">
+              <FontAwesomeIcon icon={faShirt} /> <span>Fashion</span>
+            </NavDropdown.Item>
+            <NavDropdown.Item href="Electronics">
+              <FontAwesomeIcon icon={faComputer} /> <span>Electronics</span>
+            </NavDropdown.Item>
+            <NavDropdown.Item href="Gaming">
+              <FontAwesomeIcon icon={faGamepad} /> <span>Gaming</span>
+            </NavDropdown.Item>
+          </NavDropdown>
         </div>
       </nav>
     </div>

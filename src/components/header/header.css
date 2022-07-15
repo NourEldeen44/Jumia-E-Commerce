@@ -2,14 +2,14 @@ body {
     direction: ltr;
     /* -webkit-margin-collapse: discard; */
 }
-ol,ul{
+/* ol,ul{
     padding: 0  !important;
-}
+} */
 .jumia-container{
-  width:85vw !important;
-  display: flex !important;
-  justify-content: space-between !important;
-  flex-wrap: nowrap !important;
+    width: 85vw !important;
+    display: flex !important;
+    justify-content: center !important;
+    flex-wrap: nowrap !important;
 }
 .navbar {
     box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 4px -4px;
@@ -32,7 +32,7 @@ ol,ul{
     color: rgb(40, 40, 40);
     flex-basis: auto;
     font-size: 14px;
-    max-width: 80vw;
+    /* max-width: 80vw; */
     padding-bottom: 16px;
     padding-top: 16px;
     text-size-adjust: 100%;
@@ -95,6 +95,9 @@ outline-width: 0;
 .sign{
     box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 4px -4px !important;
 }
+#navbarSupportedContent ul{
+    padding-left: 0 !important;
+}
 @media screen and (max-width:991px) {
     .dropmenu{
         display: flex;
@@ -113,9 +116,29 @@ outline-width: 0;
     .jumialogo{
         display: none;
     }
+    .catdrop .nav-link{
+        padding: 5px !important;
+    }
+    .caticon{
+        font-size: 16px !important;
+    }
+    .cattitle{
+        display: none !important;
+    }
 }
 @media screen and (max-width:400px) {
     .jumia-container{
         margin-left: 5px !important;
     }
+}
+.catdrop .dropdown-toggle::after{
+    display: none !important;
+}
+.catdrop .dropdown-item{
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.catdrop .dropdown-item:hover{
+    color: orange;
+    background-color: white !important;
 }
