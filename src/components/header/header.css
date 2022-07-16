@@ -1,10 +1,9 @@
 body {
-    direction: ltr;
-    /* -webkit-margin-collapse: discard; */
+    position: relative;
 }
-/* ol,ul{
-    padding: 0  !important;
-} */
+.lang-header{
+    direction: ltr !important;
+}
 .jumia-container{
     width: 85vw !important;
     display: flex !important;
@@ -97,13 +96,14 @@ outline-width: 0;
 }
 #navbarSupportedContent ul{
     padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 @media screen and (max-width:991px) {
     .dropmenu{
         display: flex;
         flex-direction: row !important;
         position: absolute;
-        width: 100vw;
+        width: -webkit-fill-available !important;
         top: 79px;
         left: 50%;
         transform: translatex(-50%);
