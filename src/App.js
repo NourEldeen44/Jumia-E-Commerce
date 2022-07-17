@@ -1,11 +1,12 @@
 import "./App.css";
 import Header from "./components/header/header";
 import Firetest from "./firetest/firetest";
+import Category from "./components/category/category";
 
 function App() {
   return (
     <div>
-      <Header />
+      <Header />       
       <div>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error tempore
         voluptates sequi magnam! Rem aperiam voluptatum beatae quod explicabo

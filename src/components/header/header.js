@@ -386,7 +386,8 @@ const Header = () => {
               <FontAwesomeIcon icon={faShirt} /> <span>Fashion</span>
             </NavDropdown.Item>
             <NavDropdown.Item href="Electronics">
-              <FontAwesomeIcon icon={faComputer} /> <span>Electronics</span>
+              <FontAwesomeIcon icon={faComputer} 
+              onClick={() => {this.props.history.push("/category");}} /><span>Electronics</span>
             </NavDropdown.Item>
             <NavDropdown.Item href="Gaming">
               <FontAwesomeIcon icon={faGamepad} /> <span>Gaming</span>
