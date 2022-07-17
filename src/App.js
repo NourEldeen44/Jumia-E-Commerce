@@ -1,105 +1,28 @@
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import "./App.css";
 import Header from "./components/header/header";
+import Loream from "./components/loream/loream";
 import Firetest from "./firetest/firetest";
-import Category from "./components/category/category";
+import { useState } from "react";
+import { LangProvider } from "./contexts/langContext";
+import category from "./components/category/category";
+// import { useContext } from "react";
 
 function App() {
+  const [lang, setlang] = useState("en");
+  // const {langcon,setlangcon} = useContext(contextValue);
   return (
-    <div>
-      <Header />       
-      <div>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error tempore
-        voluptates sequi magnam! Rem aperiam voluptatum beatae quod explicabo
-        architecto incidunt nulla! Assumenda quibusdam debitis expedita impedit,
-        distinctio veniam vel. Lorem ipsum dolor, sit amet consectetur
-        adipisicing elit. Tenetur non accusamus in sit, ratione obcaecati
-        ducimus ipsam veritatis corporis, maiores aut omnis eaque veniam natus
-        consectetur reiciendis doloribus illum molestias. Lorem ipsum dolor sit
-        amet consectetur adipisicing elit. Nam animi minima adipisci ipsa
-        repellat corrupti pariatur voluptatibus natus, expedita, maxime fugit
-        ullam facere velit. Numquam voluptate cum quibusdam repudiandae
-        repellendus! Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-        Error tempore voluptates sequi magnam! Rem aperiam voluptatum beatae
-        quod explicabo architecto incidunt nulla! Assumenda quibusdam debitis
-        expedita impedit, distinctio veniam vel. Lorem ipsum dolor, sit amet
-        consectetur adipisicing elit. Tenetur non accusamus in sit, ratione
-        obcaecati ducimus ipsam veritatis corporis, maiores aut omnis eaque
-        veniam natus consectetur reiciendis doloribus illum molestias. Lorem
-        ipsum dolor sit amet consectetur adipisicing elit. Nam animi minima
-        adipisci ipsa repellat corrupti pariatur voluptatibus natus, expedita,
-        maxime fugit ullam facere velit. Numquam voluptate cum quibusdam
-        repudiandae repellendus! Lorem ipsum dolor sit, amet consectetur
-        adipisicing elit. Error tempore voluptates sequi magnam! Rem aperiam
-        voluptatum beatae quod explicabo architecto incidunt nulla! Assumenda
-        quibusdam debitis expedita impedit, distinctio veniam vel. Lorem ipsum
-        dolor, sit amet consectetur adipisicing elit. Tenetur non accusamus in
-        sit, ratione obcaecati ducimus ipsam veritatis corporis, maiores aut
-        omnis eaque veniam natus consectetur reiciendis doloribus illum
-        molestias. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
-        animi minima adipisci ipsa repellat corrupti pariatur voluptatibus
-        natus, expedita, maxime fugit ullam facere velit. Numquam voluptate cum
-        quibusdam repudiandae repellendus! Lorem ipsum dolor sit, amet
-        consectetur adipisicing elit. Error tempore voluptates sequi magnam! Rem
-        aperiam voluptatum beatae quod explicabo architecto incidunt nulla!
-        Assumenda quibusdam debitis expedita impedit, distinctio veniam vel.
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur non
-        accusamus in sit, ratione obcaecati ducimus ipsam veritatis corporis,
-        maiores aut omnis eaque veniam natus consectetur reiciendis doloribus
-        illum molestias. Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Nam animi minima adipisci ipsa repellat corrupti pariatur
-        voluptatibus natus, expedita, maxime fugit ullam facere velit. Numquam
-        voluptate cum quibusdam repudiandae repellendus! Lorem ipsum dolor sit,
-        amet consectetur adipisicing elit. Error tempore voluptates sequi
-        magnam! Rem aperiam voluptatum beatae quod explicabo architecto incidunt
-        nulla! Assumenda quibusdam debitis expedita impedit, distinctio veniam
-        vel. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur
-        non accusamus in sit, ratione obcaecati ducimus ipsam veritatis
-        corporis, maiores aut omnis eaque veniam natus consectetur reiciendis
-        doloribus illum molestias. Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Nam animi minima adipisci ipsa repellat corrupti
-        pariatur voluptatibus natus, expedita, maxime fugit ullam facere velit.
-        Numquam voluptate cum quibusdam repudiandae repellendus! Lorem ipsum
-        dolor sit, amet consectetur adipisicing elit. Error tempore voluptates
-        sequi magnam! Rem aperiam voluptatum beatae quod explicabo architecto
-        incidunt nulla! Assumenda quibusdam debitis expedita impedit, distinctio
-        veniam vel. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-        Tenetur non accusamus in sit, ratione obcaecati ducimus ipsam veritatis
-        corporis, maiores aut omnis eaque veniam natus consectetur reiciendis
-        doloribus illum molestias. Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Nam animi minima adipisci ipsa repellat corrupti
-        pariatur voluptatibus natus, expedita, maxime fugit ullam facere velit.
-        Numquam voluptate cum quibusdam repudiandae repellendus! Lorem ipsum
-        dolor sit, amet consectetur adipisicing elit. Error tempore voluptates
-        sequi magnam! Rem aperiam voluptatum beatae quod explicabo architecto
-        incidunt nulla! Assumenda quibusdam debitis expedita impedit, distinctio
-        veniam vel. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-        Tenetur non accusamus in sit, ratione obcaecati ducimus ipsam veritatis
-        corporis, maiores aut omnis eaque veniam natus consectetur reiciendis
-        doloribus illum molestias. Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Nam animi minima adipisci ipsa repellat corrupti
-        pariatur voluptatibus natus, expedita, maxime fugit ullam facere velit.
-        Numquam voluptate cum quibusdam repudiandae repellendus! Lorem ipsum
-        dolor sit, amet consectetur adipisicing elit. Error tempore voluptates
-        sequi magnam! Rem aperiam voluptatum beatae quod explicabo architecto
-        incidunt nulla! Assumenda quibusdam debitis expedita impedit, distinctio
-        veniam vel. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-        Tenetur non accusamus in sit, ratione obcaecati ducimus ipsam veritatis
-        corporis, maiores aut omnis eaque veniam natus consectetur reiciendis
-        doloribus illum molestias. Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Nam animi minima adipisci ipsa repellat corrupti
-        pariatur voluptatibus natus, expedita, maxime fugit ullam facere velit.
-        Numquam voluptate cum quibusdam repudiandae repellendus! Lorem ipsum
-        dolor sit, amet consectetur adipisicing elit. Error tempore voluptates
-        sequi magnam! Rem aperiam voluptatum beatae quod explicabo architecto
-        incidunt nulla! Assumenda quibusdam debitis expedita impedit, distinctio
-        veniam vel. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-        Tenetur non accusamus in sit, ratione obcaecati ducimus ipsam veritatis
-        corporis, maiores aut omnis eaque veniam natus consectetur reiciendis
-        doloribus illum molestias. Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Nam animi minima adipisci ipsa repellat corrupti
-        pariatur voluptatibus natus, expedita, maxime fugit ullam facere velit.
-        Numquam voluptate cum quibusdam repudiandae repellendus!
-      </div>
+    <div dir={lang == "en" ? "ltr" : "rtl"}>
+      <Router>
+        <LangProvider value={{ lang, setlang }}>
+          <Header />
+          <Switch>
+            <Route exact path={"/loream"} component={Loream}></Route>
+            <Route exact path={"/category"} component={category}></Route>
+
+          </Switch>
+        </LangProvider>
+      </Router>
     </div>
   );
 }
