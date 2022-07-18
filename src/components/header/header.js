@@ -23,11 +23,12 @@ import {
 import jumialogo from "../../images/Jumia-Logo.png";
 import { NavDropdown } from "react-bootstrap";
 import "./header.css";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useContext } from "react";
 import { langContext } from "../../contexts/langContext";
 const Header = () => {
-  // const his = useHistory();
+  const his = useHistory();
   const { lang, setlang } = useContext(langContext);
   return (
     <div
@@ -35,6 +36,7 @@ const Header = () => {
       style={{
         position: "sticky",
         top: "0px",
+        zIndex: "10",
       }}
     >
       <div className="lang-header" style={{ backgroundColor: "whitesmoke" }}>
@@ -94,14 +96,26 @@ const Header = () => {
               justifyContent: "space-between",
             }}
           >
-            <a className="navbar-brand" href="#">
+            {/* <button
+              style={{ border: "none", backgroundColor: "transparent" }}
+              className="navbar-brand"
+              onClick={() => his.push(`/loream`)}
+            > */}
+            {/* <img
+                src={jumialogo}
+                alt="jumia Svg"
+                height={"80px"}
+                className="jumialogo"
+              /> */}
+            {/* </button> */}
+            <Link to="/loream" className="nav-link logoHolder">
               <img
                 src={jumialogo}
                 alt="jumia Svg"
                 height={"80px"}
                 className="jumialogo"
               />
-            </a>
+            </Link>
             <button
               className="navbar-toggler"
               type="button"
@@ -114,9 +128,23 @@ const Header = () => {
               <FontAwesomeIcon icon={faBars} />
             </button>
 
-            <form className="d-flex search " role="search" onSubmit={() => {}}>
+            <form
+              className="d-flex search "
+              role="search"
+              onSubmit={(e) => {
+                // e.preventDefault();
+                if (document.getElementById("searchInput").value) {
+                  his.push(
+                    `/search=${document.getElementById("searchInput").value}`
+                  );
+                } else {
+                  alert("write product name to search");
+                }
+              }}
+            >
               <div className="d-flex flex-row border border-1 border-Secondary flex-grow-1 mx-2">
                 <input
+                  id="searchInput"
                   className="search-input m-2 border-0 flex-grow-1"
                   type="text"
                   placeholder={

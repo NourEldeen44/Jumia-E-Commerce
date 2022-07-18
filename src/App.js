@@ -5,6 +5,7 @@ import Loream from "./components/loream/loream";
 import Firetest from "./firetest/firetest";
 import { useState } from "react";
 import { LangProvider } from "./contexts/langContext";
+import Search from "./pages/search/search";
 // import { useContext } from "react";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Header />
           <Switch>
             <Route exact path={"/loream"} component={Loream}></Route>
+            <Route exact path={"/search=:value"} component={Search}></Route>
           </Switch>
         </LangProvider>
       </Router>

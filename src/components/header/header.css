@@ -1,6 +1,6 @@
-body {
+/* body {
     position: relative;
-}
+} */
 .lang-header{
     direction: ltr !important;
 }
@@ -102,6 +102,7 @@ outline-width: 0;
     .dropmenu{
         display: flex;
         flex-direction: row !important;
+        justify-content: center;
         position: absolute;
         width: -webkit-fill-available !important;
         top: 79px;
@@ -113,8 +114,8 @@ outline-width: 0;
 
 }
 @media screen and (max-width:692px) {
-    .jumialogo{
-        display: none;
+    .logoHolder{
+        display: none !important;
     }
     .catdrop .nav-link{
         padding: 5px !important;
