@@ -1,39 +1,81 @@
 import React from "react";
-// import { firestore } from "./firebase";
-import {
-  addDoc,
-  collection,
-  deleteDoc,
-  doc,
-  getDoc,
-  setDoc,
-  updateDoc,
-} from "@firebase/firestore";
+ //import { firestore } from "../../../@firebase";
+ import { firestore } from "./../../firebase";
 
-const Category = ({ category }) => {
-    console.log(category);
+
+
+import {collection,doc,getDoc,} from "@firebase/firestore";
+import { useHistory, useParams } from "react-router-dom";
+import { useContext } from "react";
+import { langContext } from "../../contexts/langContext";
+import { SplitButton } from "react-bootstrap";
+import {where} from "@firebase/firestore";
+import {query} from "@firebase/firestore";
+
+const Category = () => {
+ //console.log(category);
+  const { lang } = useContext(langContext);
+  const history = useHistory();
+  //console.log(history.location.pathname);
+
+ var cat=history.location.pathname.split("/")[2];
+  console.log(cat.toLowerCase());
+ 
+
+
 
      //queries
-      //get all category
-      // const colRef = collection(this.fireStore,"products");
-      // //must be imported from firebase/firestore
-      // var categoryquery = query(colRef, where("category", "==", "category"));
-      // getDocs(categoryquery).then((q)=>{
-      //   //if query is not empty
-      //   if (!q.empty) {
-      //   q.forEach((res)=>{
-      //       const docRef = doc(this.fireStore,`products/${res.id}`);
-      //       getDoc(docRef).then((prdDoc)=>{
-      //         if (prdDoc.exists()) {
-      //           alert(prdDoc.data()['category'])
+      //get all products in same category
+      // const products = query(collection(fireStore,"products"))
+      // .where("category", "==", cat.toLowerCase())
+      // .get()
+      // .then(snapshot => {
+      //   const products = snapshot.docs.map(doc => {
+      //     return { id: doc.id, ...doc.data() };
+      //   });
+      //   console.log(products);
+      //   return products;
+      // }
+      // )
+      // .catch(error => {
+      //   console.log("Error getting documents: ", error);
+      // }
+      // );
 
-      //         }
-      //       })
-      //   })}
-      //   else{
-      //     alert("no category found with that name")
+
+      const colRef = collection(firestore,"products");
+      // const queryRef = colRef.where("category", "==", cat.toLowerCase());
+      // const query = queryRef.get();
+      // query.then(snapshot => {
+      //   if (snapshot.empty) {
+      //     console.log("No matching documents.");
+      //     return;
       //   }
-      // })
+      //   snapshot.forEach(doc => {
+      //     console.log(doc.id, "=>", doc.data());
+      //   }
+      //   );
+      // }
+      // );
+
+      //must be imported from firebase/firestore
+      var categoryquery = query(colRef, where("category", "==", "electronics-tablet"));
+      getDoc(categoryquery).then((q)=>{
+        //if query is not empty
+        if (!q.empty) {
+        q.forEach((res)=>{
+            const docRef = doc(this.fireStore,`products/${res.id}`);
+            getDoc(docRef).then((prdDoc)=>{
+              if (prdDoc.exists()) {
+                alert(prdDoc.data()['category'])
+
+              }
+            })
+        })}
+        else{
+          alert("no category found with that name")
+        }
+      })
 
   return (
     <div className="category">

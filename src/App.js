@@ -18,7 +18,7 @@ function App() {
           <Header />
           <Switch>
             <Route exact path={"/loream"} component={Loream}></Route>
-            <Route exact path={"/category"} component={category}></Route>
+            <Route path={"/category"} component={category}></Route>
 
           </Switch>
         </LangProvider>

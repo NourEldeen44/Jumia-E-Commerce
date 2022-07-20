@@ -27,8 +27,14 @@ import { useHistory } from "react-router-dom";
 import { useContext } from "react";
 import { langContext } from "../../contexts/langContext";
 const Header = () => {
-  // const his = useHistory();
+   const his = useHistory();
   const { lang, setlang } = useContext(langContext);
+  // on click of category icon push to category page with category as param and lang as param as well
+  const handleCategory = (category) => {
+    his.push(`/category/${category}`);
+    window.location.href = `/category/${category}`;
+  }
+
   return (
     <div
       className="header-main"
@@ -524,7 +530,7 @@ const Header = () => {
               </NavDropdown.Item>
               <NavDropdown.Item href="Electronics">
                 <FontAwesomeIcon icon={faComputer} />{" "}
-                <span>{lang == "en" ? "Electronics" : "إلكترونيات"}</span>
+                <span onClick={(e)=>handleCategory(e)}>{lang == "en" ? "Electronics" : "إلكترونيات"}</span>
               </NavDropdown.Item>
               <NavDropdown.Item href="Gaming">
                 <FontAwesomeIcon icon={faGamepad} />{" "}
