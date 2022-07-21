@@ -24,15 +24,14 @@ const Snapscroll = (props) => {
   const prvBtnRef = useRef(null);
   const scrollEnd = () => {
     lastImageRef.current.scrollIntoView({ behavior: "smooth" });
-    // setsnapScrollScreen("end");
-    console.log(snapScrollScreen);
+    // console.log(snapScrollScreen);
     setnxtBtnDisabled(true);
     setprvBtnDisabled(false);
   };
   const scrollFirst = () => {
     firstImageRef.current.scrollIntoView({ behavior: "smooth" });
     setsnapScrollScreen("start");
-    console.log(snapScrollScreen);
+    // console.log(snapScrollScreen);
     setprvBtnDisabled(true);
     setnxtBtnDisabled(false);
   };
@@ -89,8 +88,6 @@ const Snapscroll = (props) => {
             ? { backgroundColor: "#c7c7cd", cursor: "auto" }
             : { backgroundColor: "#939393", cursor: "pointer" }
         }
-        // disabled={nxtBtnDisabled}
-        // disabled={snapScrollScreen == "end" ? true : false}
         className="scroll-Btn"
       >
         <FontAwesomeIcon icon={faChevronRight} />
