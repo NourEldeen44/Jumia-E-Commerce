@@ -520,21 +520,21 @@ const Header = () => {
               className="catdrop"
               menuVariant="light"
             >
-              <NavDropdown.Item href="Supermarket">
+              <NavDropdown.Item  onClick={(e)=>handleCategory(e)}  href="Food">
                 <FontAwesomeIcon icon={faAppleWhole} />{" "}
                 <span>{lang == "en" ? "Supermarket" : "سوبر ماركت"}</span>
               </NavDropdown.Item>
-              <NavDropdown.Item href="Fashion">
+              <NavDropdown.Item  onClick={(e)=>handleCategory(e)}  href="Fashion">
                 <FontAwesomeIcon icon={faShirt} />{" "}
                 <span>{lang == "en" ? "Fashion" : "أزياء"}</span>
               </NavDropdown.Item>
-              <NavDropdown.Item href="Electronics">
+              <NavDropdown.Item onClick={(e)=>handleCategory(e)} href="Electronics">
                 <FontAwesomeIcon icon={faComputer} />{" "}
-                <span onClick={(e)=>handleCategory(e)}>{lang == "en" ? "Electronics" : "إلكترونيات"}</span>
+                <span >{lang == "en" ? "Electronics" : "إلكترونيات"}</span>
               </NavDropdown.Item>
-              <NavDropdown.Item href="Gaming">
+              <NavDropdown.Item  onClick={(e)=>handleCategory(e)}  href="Gamming">
                 <FontAwesomeIcon icon={faGamepad} />{" "}
-                <span>{lang == "en" ? "Gaming" : "ألعاب"}</span>
+                <span>{lang == "en" ? "Gamming" : "ألعاب"}</span>
               </NavDropdown.Item>
             </NavDropdown>
           </div>

@@ -1,43 +1,25 @@
 /* eslint-disable eqeqeq */
-
+import './category.css';
 import React from "react";
- //import { firestore } from "../../../@firebase";
- import { firestore } from "./../../firebase";
+import { firestore } from "./../../firebase";
 import {collection,doc,getDoc, orderBy,query,startAt,endAt,getDocs} from "@firebase/firestore";
 import { useRouteMatch, useLocation, Link } from "react-router-dom";
-
-// import { useHistory, useParams, useState} from "react-router-dom";
-// import { useEffect, useContext } from "react";
 import {  useContext,useEffect,useState } from "react";
 import { useHistory } from 'react-router-dom';
-
-// import { useContext } from "react";
 import { langContext } from "../../contexts/langContext";
-// import { SplitButton } from "react-bootstrap";
-// import {where} from "@firebase/firestore";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 
 const Category = () => {
-
-
 var history = useHistory();
 console.log(history);
 const [products, setproducts] = useState([]);
-const [loading, setloading] = useState(true);
-
 const { lang } = useContext(langContext);
-
 console.log(history.location.pathname);
-
  var cat=history.location.pathname.split("/")[2];
   console.log(cat.toLowerCase());
-  // var products = [];
   const prdIDS = [];
-  var prds = [];
-
-
   useEffect(() => {    
   const colRef = collection(firestore,"products");
   var searchcatquery = query(
@@ -50,13 +32,8 @@ console.log(history.location.pathname);
     if (!q.empty) {
       q.forEach((res) => {
         if (res.exists() && !prdIDS.includes(res.id)) {
-           setproducts((products) => [...products, res.data()]);          
-          // prds.push(res.data());
-          //products.push(res.data());
-         console.log(products);
+           setproducts((products) => [...products, res.data()]);
           prdIDS.push(res.id);
-          // console.log(prdIDS);
-          //console.log(products.length);
         }
       });
     }
@@ -65,53 +42,6 @@ console.log(history.location.pathname);
   }, []);
   
 
-//   return (
-//     <>
-//     <div className="container">
-//       <div className="row">
-//         <div className="col-md-12">
-//           <div className="card">
-//             <div className="card-header">
-//               <h4>{cat}</h4>
-//             </div>
-//             <span>{products.length} </span>
-//             <span>{products} </span>
-//             {/* <div className="card-body">
-//               <div className="row">
-//                 {products.map((product) => (
-//                   <div className="col-md-3">
-//                     <div className="card">
-//                       <div className="card-body">
-//                         <img
-//                           src={product.imgurl}
-//                           alt="product"
-//                           className="img-fluid"
-//                         />
-//                         <h5 className="card-title">{product.engname}</h5>
-//                         <p className="card-text">{product.engdetails}</p>
-//                         <p className="card-text">
-//                           <small className="text-muted">
-//                             {product.price}
-//                           </small>
-//                         </p>
-//                         {/* <Link to={`/product/${product.id}`}>
-//                           <button className="btn btn-primary">
-//                             {lang.readMore}
-//                           </button>
-//                         </Link> 
-//                       </div>
-//                     </div>
-//                   </div>
-//                 ))}
-//               </div>
-//             </div> */}
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//     </>
-//   );
-// }
 
   return (
     <div className="cardBox">
@@ -121,8 +51,6 @@ console.log(history.location.pathname);
       </div>
     ) : (
       products.map((product, index) => {
-        // console.log("???????????????????");
-        // console.log(products);
         return (
           <div
             key={index}
