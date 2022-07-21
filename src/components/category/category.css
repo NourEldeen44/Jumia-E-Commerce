@@ -1,0 +1,41 @@
+.cardBox{
+    position: relative !important;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 85vw !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media screen and (max-width:990px) {
+    .cardBox{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    .card{
+        width: fit-content !important;
+        margin-left: 3px !important;
+        margin-right:3px !important;
+    }
+}
+@media screen and (max-width:587px) {
+    /* .cardBox{
+        width: 90vw !important;
+    } */
+    .card{
+        width: 85vw !important;
+    }
+}
+.cardBox div{
+    font-size: .85rem;
+}
+.card button{
+    visibility: hidden;
+}
+.card:hover {
+    transform: scale(.95);
+}
+.card:hover button{
+    visibility: visible;
+}

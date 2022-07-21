@@ -19,7 +19,6 @@ function App() {
           <Switch>
             <Route exact path={"/loream"} component={Loream}></Route>
             <Route path={"/category"} component={category}></Route>
-
           </Switch>
         </LangProvider>
       </Router>
