@@ -1,0 +1,32 @@
+.home-navigation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.side-nav-sales img:hover{
+    transform: scale(.95);
+}
+.home-navigation .list-group-item{
+  border: none !important;
+}
+.home-cat-bar a{
+ text-decoration: none !important;
+}
+.home-cat-bar li:hover{
+    color: orange !important;
+}
+.home-cat-bar ul{
+    padding-inline-start: 0 !important;
+}
+@media screen and (max-width:1150px) {
+    .side-nav-sales{
+        display: none !important;
+    }
+}
+@media screen and (max-width:950px) {
+    .home-cat-bar{
+        display: none !important;
+    }
+    
+}

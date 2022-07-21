@@ -1,0 +1,10 @@
+.carousel-indicators .active{
+    opacity:1 !important;
+    background-color: darkorange !important;
+}
+@media screen and (max-width:950px) {
+    .navigation-and-sales{
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}

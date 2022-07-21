@@ -42,6 +42,7 @@ const Search = () => {
   const fireStore = firestore;
   const search = (value = searchValue) => {
     if (value) {
+      setproducts([]);
       const colRef = collection(fireStore, "products");
       //name
       var searchnamequery = query(

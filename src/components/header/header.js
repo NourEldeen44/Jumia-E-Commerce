@@ -132,7 +132,10 @@ const Header = () => {
               className="d-flex search "
               role="search"
               onSubmit={(e) => {
-                // e.preventDefault();
+                e.preventDefault();
+                // !his.location.pathname.includes("search")
+                //   ? e.preventDefault()
+                //   : console.log("no default");
                 if (document.getElementById("searchInput").value) {
                   his.push(
                     `/search=${document.getElementById("searchInput").value}`
@@ -542,19 +545,25 @@ const Header = () => {
               className="catdrop"
               menuVariant="light"
             >
-              <NavDropdown.Item href="Supermarket">
+              <NavDropdown.Item
+                href="Supermarket"
+                style={{ textAlign: "initial" }}
+              >
                 <FontAwesomeIcon icon={faAppleWhole} />{" "}
                 <span>{lang == "en" ? "Supermarket" : "سوبر ماركت"}</span>
               </NavDropdown.Item>
-              <NavDropdown.Item href="Fashion">
+              <NavDropdown.Item href="Fashion" style={{ textAlign: "initial" }}>
                 <FontAwesomeIcon icon={faShirt} />{" "}
                 <span>{lang == "en" ? "Fashion" : "أزياء"}</span>
               </NavDropdown.Item>
-              <NavDropdown.Item href="Electronics">
+              <NavDropdown.Item
+                href="Electronics"
+                style={{ textAlign: "initial" }}
+              >
                 <FontAwesomeIcon icon={faComputer} />{" "}
                 <span>{lang == "en" ? "Electronics" : "إلكترونيات"}</span>
               </NavDropdown.Item>
-              <NavDropdown.Item href="Gaming">
+              <NavDropdown.Item href="Gaming" style={{ textAlign: "initial" }}>
                 <FontAwesomeIcon icon={faGamepad} />{" "}
                 <span>{lang == "en" ? "Gaming" : "ألعاب"}</span>
               </NavDropdown.Item>
