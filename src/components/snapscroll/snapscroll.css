@@ -1,0 +1,42 @@
+.snap-parent{
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space:nowrap;
+    scroll-snap-type:x mandatory;
+    scrollbar-width: none;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.snap-parent::-webkit-scrollbar{
+    display: none;
+}
+.snap-child{
+    border-radius: 8px;
+    scroll-snap-align: none center;
+}
+.snap-child:hover{
+    transform: scale(.95);
+    transition: 150ms;
+}
+.snap-child img{
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 131px;
+}
+.scroll-Btn{
+    background-color: #939393;
+    color: white;
+    font-size: large;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.scroll-Btn:hover{
+    background-color: gray;
+}

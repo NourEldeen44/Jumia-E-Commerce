@@ -1,0 +1,10 @@
+.snap div {
+    scroll-snap-align: none center;
+}
+.snap{
+    scrollbar-width: none;
+    display: flex;
+}
+.snap::-webkit-scrollbar {
+    display: none;
+  }
