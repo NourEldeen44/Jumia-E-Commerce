@@ -23,13 +23,19 @@ const Snapscroll = (props) => {
   const nxtBtnRef = useRef(null);
   const prvBtnRef = useRef(null);
   const scrollEnd = () => {
-    lastImageRef.current.scrollIntoView({ behavior: "smooth" });
+    lastImageRef.current.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+    });
     // console.log(snapScrollScreen);
     setnxtBtnDisabled(true);
     setprvBtnDisabled(false);
   };
   const scrollFirst = () => {
-    firstImageRef.current.scrollIntoView({ behavior: "smooth" });
+    firstImageRef.current.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+    });
     setsnapScrollScreen("start");
     // console.log(snapScrollScreen);
     setprvBtnDisabled(true);
@@ -40,7 +46,7 @@ const Snapscroll = (props) => {
       className="snap-scroll-box"
       style={{
         display: "flex",
-        width: "85vw",
+        // maxWidth: "85vw",
         marginLeft: "auto",
         marginRight: "auto",
         justifyContent: "center",

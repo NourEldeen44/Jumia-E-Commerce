@@ -21,7 +21,7 @@ const Homecatbar = () => {
         height: "384px",
         width: "13rem",
         marginRight: "15px",
-        marginLeft: "15px",
+        // marginLeft: "15px",
         border: "1px solid rgba(0,0,0,.09)",
         justifyContent: "space-evenly",
       }}

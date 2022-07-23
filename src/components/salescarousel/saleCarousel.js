@@ -19,7 +19,6 @@ const SaleCarousel = () => {
         style={{
           marginLeft: "auto",
           marginRight: "auto",
-          maxHeight: "382px",
           maxWidth: "712px",
         }}
         id="salesCarousel"
@@ -213,7 +212,6 @@ const SaleCarousel = () => {
           </div>
           <div className="carousel-item">
             <Link to="/loream">
-              onLoad=
               {() => {
                 setloaded(true);
               }}

@@ -1,0 +1,77 @@
+.product-snap-parent{
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space:nowrap;
+    scroll-snap-type:x mandatory;
+    scrollbar-width: none;
+}
+.product-snap-parent::-webkit-scrollbar{
+    display: none;
+}
+ .product-snap-child{
+    border-radius: 8px;
+    scroll-snap-align: none center;
+    position: relative;
+}
+.product-snap-child:hover{
+    transform: scale(.95);
+    transition: 150ms;
+}
+.product-snap-child img{
+    width: 131px;
+}
+.snap-scroll-box:hover .product-scroll-Btn{
+    visibility: visible !important;
+}
+.product-scroll-Btn{
+    background-color: #939393;
+    color: white;
+    font-size: large;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    visibility: hidden;
+}
+.nxt-btn{
+    left: 9%;
+    z-index: 2;
+}
+.prv-btn{
+    right: 9%;
+    z-index: 2;
+}
+.product-scroll-Btn:hover{
+    background-color: gray;
+}
+@media screen and (max-width:900px) {
+    .product-snap-child .card{
+        width: 20vw !important;
+        font-size: 14px !important;
+    }
+
+}
+@media screen and (max-width:662px) {
+    .product-snap-child .card{
+        width: 25vw !important;
+    }
+
+}
+@media screen and (max-width:490px) {
+    .product-snap-child .card{
+        width: 30vw !important;
+    }
+
+}
+@media screen and (max-width:425px) {
+    .product-snap-child .card{
+        width: 35vw !important;
+    }
+
+}

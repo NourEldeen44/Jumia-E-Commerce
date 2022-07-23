@@ -19,6 +19,21 @@
 .home-cat-bar ul{
     padding-inline-start: 0 !important;
 }
+.home-free-shipping-image:hover , .amazingdeals-parent-image:hover , .home-cats-card:hover{
+    transform: scale(.95);
+}
+.home-bestoffer-products img {
+    transform: rotate(12deg);
+}
+.home-cats-card{
+    color: black !important;
+    text-decoration: none !important;
+}
+@media screen and (min-width:1400px) {
+    .home-page-parent{
+        width: 1185px !important;
+    }
+}
 @media screen and (max-width:1150px) {
     .side-nav-sales{
         display: none !important;

@@ -1,22 +1,37 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { useInViewport } from "react-in-viewport";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import "./loream.css";
 import Snapscroll from "../snapscroll/snapscroll";
+import ProductSnapscroll from "../products snapscroll/productsSnapscroll";
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  getDoc,
+  setDoc,
+  updateDoc,
+  orderBy,
+  query,
+  startAt,
+  endAt,
+  getDocs,
+  where,
+  limit,
+} from "@firebase/firestore";
+import loadingImage from "../../images/loading.png";
+import { firestore } from "../../firebase";
 const Loream = () => {
   const divRef = useRef(null);
   const ref = useRef();
   const isInPortView = useInViewport(divRef);
-  // useScrollSnap({
-  //   ref: divRef,
-  //   duration: 100,
-  //   delay: 50,
-  // });
-  // const el = document.getElementById("snap").style;
   const scroll = () => {
     console.log();
     divRef.current.scrollIntoView({ behavior: "smooth" });
   };
+  const [loading, setloading] = useState(true);
   const imagesData = [
     "https://eg.jumia.is/cms/23-22/Thumbnails/AR/Flash_sales_AR.png",
     "https://eg.jumia.is/cms/23-22/Thumbnails/AR/Flash_sales_AR.png",
@@ -31,6 +46,62 @@ const Loream = () => {
     "https://eg.jumia.is/cms/23-22/Thumbnails/AR/Flash_sales_AR.png",
     "https://eg.jumia.is/cms/23-22/Thumbnails/AR/Flash_sales_AR.png",
   ];
+  const placeholderImages = [
+    { imgurl: loadingImage },
+    { imgurl: loadingImage },
+    { imgurl: loadingImage },
+    { imgurl: loadingImage },
+    { imgurl: loadingImage },
+    { imgurl: loadingImage },
+    { imgurl: loadingImage },
+    { imgurl: loadingImage },
+    { imgurl: loadingImage },
+    { imgurl: loadingImage },
+  ];
+  const [products, setproducts] = useState([]);
+  const productRef = useRef();
+  const productSnapInPortView = useInViewport(productRef);
+  const prdIDS = [];
+  useEffect(() => {
+    //category
+    if (productSnapInPortView.inViewport && products.length == 0) {
+      console.log("****111111111111111!!!!!!!");
+      console.log(productSnapInPortView);
+      getProducts();
+    }
+  }, [productSnapInPortView.inViewport]);
+  const getProducts = () => {
+    // if (prdIDS.length == 0) {
+    setproducts([]);
+    const colRef = collection(firestore, "products");
+    var catQuery = query(
+      colRef,
+      orderBy("category"),
+      startAt("food".toLowerCase()),
+      endAt("food".toLowerCase() + "\uf8ff"),
+      limit(10)
+    );
+    //search by cat
+    getDocs(catQuery)
+      .then((q) => {
+        if (!q.empty) {
+          q.forEach((res) => {
+            if (res.exists() && !prdIDS.includes(res.id)) {
+              setproducts((products) => [...products, res.data()]);
+              console.log(products);
+              prdIDS.push(res.id);
+            }
+          });
+          setloading(false);
+        } else {
+          alert("tag is empty");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    // }
+  };
   console.log(isInPortView);
   return (
     <div ref={ref} id="sn">
@@ -163,6 +234,10 @@ const Loream = () => {
         </div>
       </div> */}
       <Snapscroll images={imagesData}></Snapscroll>
+      <ProductSnapscroll
+        refrence={productRef}
+        products={!loading ? products : placeholderImages}
+      ></ProductSnapscroll>
     </div>
   );
 };

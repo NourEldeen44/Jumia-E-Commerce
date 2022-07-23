@@ -21,9 +21,9 @@
     transition: 150ms;
 }
 .snap-child img{
-    margin-left: 5px;
-    margin-right: 5px;
-    width: 131px;
+    margin-left: 4px;
+    margin-right: 4px;
+    max-width: 125px;
 }
 .scroll-Btn{
     background-color: #939393;
