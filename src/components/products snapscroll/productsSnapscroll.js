@@ -19,7 +19,9 @@ const ProductSnapscroll = (props) => {
   const [loading, setloading] = useState(true);
   useEffect(() => {
     setproducts(props.products);
-  }, [props.products]);
+    // console.log("Ids!!!!!!!!!!!!!!!!!!!!!!!!1");
+    // console.log(props.prdsIDS);
+  }, [props]);
   const [snapScrollScreen, setsnapScrollScreen] = useState("start");
   const [nxtBtnDisabled, setnxtBtnDisabled] = useState(false);
   const [prvBtnDisabled, setprvBtnDisabled] = useState(true);
@@ -76,7 +78,7 @@ const ProductSnapscroll = (props) => {
           // console.log(product);
           return (
             <Link
-              to={`/search=${index}`}
+              // to={`/search=${index}`}
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <div
@@ -93,10 +95,18 @@ const ProductSnapscroll = (props) => {
                 <div
                   className="card"
                   style={
-                    index == 0
+                    lang == "en" && index == 0
                       ? {
                           marginLeft: 0,
                           width: "15vw",
+                          marginBottom: "10px",
+                          height: "fit-content",
+                        }
+                      : lang == "ar" && index == 0
+                      ? {
+                          width: "15vw",
+                          marginRight: 0,
+                          marginLeft: "11px",
                           marginBottom: "10px",
                           height: "fit-content",
                         }
@@ -131,7 +141,7 @@ const ProductSnapscroll = (props) => {
                     {"-" + product.offer + "%"}
                   </div>
                   <Link
-                    to={`/search=${index}`}
+                    to={`/search=${product.productID}`}
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
                     <img
@@ -179,17 +189,17 @@ const ProductSnapscroll = (props) => {
                               }}
                             >
                               {lang == "en"
-                                ? (
+                                ? Math.ceil(
                                     product.price -
-                                    (parseInt(product.price) *
-                                      parseInt(product.offer)) /
-                                      100
+                                      (parseInt(product.price) *
+                                        parseInt(product.offer)) /
+                                        100
                                   ).toFixed(2) + " Egp"
-                                : (
+                                : Math.ceil(
                                     product.price -
-                                    (parseInt(product.price) *
-                                      parseInt(product.offer)) /
-                                      100
+                                      (parseInt(product.price) *
+                                        parseInt(product.offer)) /
+                                        100
                                   ).toFixed(2) + " جنيه "}
                             </div>
                             {/* price before offer */}

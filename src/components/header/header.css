@@ -81,8 +81,9 @@
     word-spacing: 0px;
     writing-mode: horizontal-tb;
 }
-.nav-main:hover{
+.nav-main:hover , .nav-main:hover svg{
  color: rgb(246, 139, 30) !important;
+ transition: 200ms !important;
 }
 .search-input:focus{
  /* border: 0px transparent;
@@ -97,6 +98,21 @@ outline-width: 0;
 #navbarSupportedContent ul{
     padding-left: 0 !important;
     padding-right: 0 !important;
+}
+.header-main .cart-count{
+    position: absolute;
+    background-color: darkorange;
+    color: white;
+    top: 3px;
+    left: 30%;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 700;
 }
 @media screen and (max-width:991px) {
     .dropmenu{

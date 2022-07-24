@@ -36,6 +36,6 @@
 .cardBox .card:hover {
     transform: scale(.95);
 }
-.cardBox.card:hover button{
+.cardBox .card:hover button{
     visibility: visible;
 }

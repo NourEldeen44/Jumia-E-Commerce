@@ -17,14 +17,23 @@ const Homecatbar = () => {
   return (
     <div
       className="card home-cat-bar"
-      style={{
-        height: "384px",
-        width: "13rem",
-        marginRight: "15px",
-        // marginLeft: "15px",
-        border: "1px solid rgba(0,0,0,.09)",
-        justifyContent: "space-evenly",
-      }}
+      style={
+        lang == "en"
+          ? {
+              height: "384px",
+              width: "13rem",
+              marginRight: "15px",
+              border: "1px solid rgba(0,0,0,.09)",
+              justifyContent: "space-evenly",
+            }
+          : {
+              height: "384px",
+              width: "13rem",
+              marginLeft: "15px",
+              border: "1px solid rgba(0,0,0,.09)",
+              justifyContent: "space-evenly",
+            }
+      }
     >
       <ul className="list-group list-group-flush">
         <Link to="/category/supermarket">

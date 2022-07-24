@@ -331,6 +331,7 @@ const Header = () => {
                     style={{
                       display: "flex",
                       alignItems: "flex-end",
+                      position: "relative",
                     }}
                   >
                     <FontAwesomeIcon
@@ -338,6 +339,7 @@ const Header = () => {
                       size="2x"
                       color="black"
                     />
+                    <div className="cart-count">{localStorage.length}</div>
                     <span
                       style={
                         lang == "en"

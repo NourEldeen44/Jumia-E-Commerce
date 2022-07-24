@@ -14,6 +14,7 @@ import { useContext } from "react";
 import { langContext } from "../../contexts/langContext";
 import Homecatbar from "../../components/homecatbar/homecatbar";
 import flashSalesImage from "../../images/flashsales.png";
+import jumiaLogo from "../../images/Jumia-Logo.png";
 import {
   addDoc,
   collection,
@@ -239,9 +240,12 @@ const Home = () => {
         if (!q.empty) {
           q.forEach((res) => {
             if (res.exists() && !productsIDS.includes(res.id)) {
-              setproducts((products) => [...products, res.data()]);
+              setproducts((products) => [
+                ...products,
+                { ...res.data(), productID: res.id },
+              ]);
               // //console.log(lastProducts);
-              prdIDS.push(res.id);
+              productsIDS.push(res.id);
             }
           });
           setLoading(false);
@@ -271,12 +275,19 @@ const Home = () => {
         <SaleCarousel></SaleCarousel>
         <div
           className="side-nav-sales"
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            marginLeft: "15px",
-            // marginRight: "15px",
-          }}
+          style={
+            lang == "en"
+              ? {
+                  display: "flex",
+                  flexDirection: "column",
+                  marginLeft: "15px",
+                }
+              : {
+                  display: "flex",
+                  flexDirection: "column",
+                  marginRight: "15px",
+                }
+          }
         >
           <Link to="/loream">
             <img
@@ -318,7 +329,7 @@ const Home = () => {
           marginBottom: ".5rem",
           padding: ".5rem",
           backgroundColor: "white",
-          maxWidth: "85vw",
+          maxWidth: "100%",
           borderRadius: "4px",
         }}
       >
@@ -342,7 +353,7 @@ const Home = () => {
             fontWeight: "500",
           }}
         >
-          Recently Added
+          {lang == "en" ? "Recently Added" : "منتجات حديثة"}
         </div>
         <ProductSnapscroll
           refrence={lastProductsRef}
@@ -365,7 +376,11 @@ const Home = () => {
           <img
             className="home-free-shipping-image"
             style={{ borderRadius: "4px", maxWidth: "100%" }}
-            src="https://eg.jumia.is/cms/ja-22/intiatives/sub-initiatives/freeshipping/new-theme/1152x252_-EN-(19).jpg"
+            src={
+              lang == "en"
+                ? "https://eg.jumia.is/cms/ja-22/intiatives/sub-initiatives/freeshipping/new-theme/1152x252_-EN-(19).jpg"
+                : "https://eg.jumia.is/cms/ja-22/intiatives/sub-initiatives/freeshipping/new-theme/1152x252_AR-(38).jpg"
+            }
             alt=""
           />
         </Link>
@@ -382,8 +397,8 @@ const Home = () => {
           padding: ".5rem",
         }}
       >
-        <img src={flashSalesImage} style={{ width: "75px" }} alt="" /> Best
-        Offers EVERY DAY!
+        <img src={flashSalesImage} style={{ width: "75px" }} alt="" />
+        {lang == "en" ? "Best Offers EVERY DAY!" : "  أفضل العروض كل يوم!"}
       </div>
       <div
         className="bestoffers-products-parent"
@@ -415,7 +430,7 @@ const Home = () => {
           textTransform: "uppercase",
         }}
       >
-        Amazing Deals!
+        {lang == "en" ? "Amazing Deals!" : "أقوى العروض!"}
       </div>
       <div
         className="amazingdeals-parent-one"
@@ -431,10 +446,15 @@ const Home = () => {
             className="amazingdeals-parent-image"
             style={{
               marginRight: ".25rem",
+              marginLeft: ".25rem",
               borderRadius: "4px",
               maxWidth: "100%",
             }}
-            src="https://eg.jumia.is/cms/29-22/UNs-Deals/Tv-Gaming-Electronics/Floor/Xiaomi-Floor-Desktop_-EN__copy_4.jpg"
+            src={
+              lang == "en"
+                ? "https://eg.jumia.is/cms/29-22/UNs-Deals/Tv-Gaming-Electronics/Floor/Xiaomi-Floor-Desktop_-EN__copy_4.jpg"
+                : "https://eg.jumia.is/cms/29-22/UNs-Deals/Tv-Gaming-Electronics/Floor/Xiaomi-Floor_Desktop_-AR__copy_4.jpg"
+            }
             alt=""
           />
         </Link>
@@ -443,10 +463,15 @@ const Home = () => {
             className="amazingdeals-parent-image"
             style={{
               marginLeft: ".25rem",
+              marginRight: ".25rem",
               borderRadius: "4px",
               maxWidth: "100%",
             }}
-            src="https://eg.jumia.is/cms/29-22/Deals-20-7/Tv/Skyline_-Floor-Desktop_-EN__copy_4.jpg"
+            src={
+              lang == "en"
+                ? "https://eg.jumia.is/cms/29-22/Deals-20-7/Tv/Skyline_-Floor-Desktop_-EN__copy_4.jpg"
+                : "https://eg.jumia.is/cms/29-22/Deals-20-7/Tv/Skyline_-Floor_Desktop_-AR__copy_4.jpg"
+            }
             alt=""
           />
         </Link>
@@ -466,11 +491,16 @@ const Home = () => {
           <img
             className="amazingdeals-parent-image"
             style={{
+              marginLeft: ".25rem",
               marginRight: ".25rem",
               borderRadius: "4px",
               maxWidth: "100%",
             }}
-            src="https://eg.jumia.is/cms/29-22/Deals-20-7/Hair-Care/Water-Floor-Desktop_-EN__copy_4.jpg"
+            src={
+              lang == "en"
+                ? "https://eg.jumia.is/cms/29-22/Deals-20-7/Hair-Care/Water-Floor-Desktop_-EN__copy_4.jpg"
+                : "https://eg.jumia.is/cms/29-22/Deals-20-7/Hair-Care/Water-Floor_Desktop_-AR__copy_4.jpg"
+            }
             alt=""
           />
         </Link>
@@ -479,10 +509,15 @@ const Home = () => {
             className="amazingdeals-parent-image"
             style={{
               marginLeft: ".25rem",
+              marginRight: ".25rem",
               borderRadius: "4px",
               maxWidth: "100%",
             }}
-            src="https://eg.jumia.is/cms/29-22/JE/Desert-Floor-Desktop_-EN__copy_4.jpg"
+            src={
+              lang == "en"
+                ? "https://eg.jumia.is/cms/29-22/JE/Desert-Floor-Desktop_-EN__copy_4.jpg"
+                : "https://eg.jumia.is/cms/29-22/JE/Samsung-Floor_Desktop_-AR__copy_4.jpg"
+            }
             alt=""
           />
         </Link>
@@ -500,7 +535,17 @@ const Home = () => {
           textTransform: "uppercase",
         }}
       >
-        <span style={{ fontWeight: "500" }}>Supermarket | </span> Up To 50% Off!
+        {lang == "en" ? (
+          <span>
+            <span style={{ fontWeight: "500" }}>Supermarket | </span> Up To 20%
+            Off!
+          </span>
+        ) : (
+          <span>
+            <span style={{ fontWeight: "500" }}>أقوى العروض | </span>{" "}
+            <span>خصم حتى 20%</span>
+          </span>
+        )}
       </div>
       <div
         className="supermarket-products-parent"
@@ -535,10 +580,15 @@ const Home = () => {
             className="amazingdeals-parent-image"
             style={{
               marginRight: ".25rem",
+              marginLeft: ".25rem",
               borderRadius: "4px",
               maxWidth: "100%",
             }}
-            src="https://eg.jumia.is/cms/29-22/Deals-20-7/Beachwear/women/Women's-Swimsuits--Floor-Desktop--EN--copy-4.png"
+            src={
+              lang == "en"
+                ? "https://eg.jumia.is/cms/29-22/Deals-20-7/Beachwear/women/Women's-Swimsuits--Floor-Desktop--EN--copy-4.png"
+                : "https://eg.jumia.is/cms/29-22/Deals-20-7/Beachwear/women/Women's-Swimsuits--Floor-Desktop--AR--copy-4.png"
+            }
             alt=""
           />
         </Link>
@@ -547,10 +597,15 @@ const Home = () => {
             className="amazingdeals-parent-image"
             style={{
               marginLeft: ".25rem",
+              marginRight: ".25rem",
               borderRadius: "4px",
               maxWidth: "100%",
             }}
-            src="https://eg.jumia.is/cms/29-22/Deals-20-7/Beachwear/men/New/men_s_Swimsuits_-Floor-Desktop_-EN__copy_4.jpg"
+            src={
+              lang == "en"
+                ? "https://eg.jumia.is/cms/29-22/Deals-20-7/Beachwear/men/New/men_s_Swimsuits_-Floor-Desktop_-EN__copy_4.jpg"
+                : "https://eg.jumia.is/cms/29-22/Deals-20-7/Beachwear/men/New/men_s_Swimsuits-Floor_Desktop_-AR__copy_4.jpg"
+            }
             alt=""
           />
         </Link>
@@ -568,7 +623,17 @@ const Home = () => {
           textTransform: "uppercase",
         }}
       >
-        <span style={{ fontWeight: "500" }}>Fashion | </span> Up To 50% Off!
+        {lang == "en" ? (
+          <span>
+            <span style={{ fontWeight: "500" }}>Fashion | </span>{" "}
+            {"Up To 50% Off!"}
+          </span>
+        ) : (
+          <span>
+            <span style={{ fontWeight: "500" }}>أقوى العروض | </span>{" "}
+            <span>خصم حتى 50%</span>
+          </span>
+        )}
       </div>
       <div
         className="fashion-products-parent"
@@ -599,7 +664,9 @@ const Home = () => {
           textAlign: "center",
         }}
       >
-        NEW OFFERS EVERYDAY ON EVERYTHING
+        {lang == "eng"
+          ? "NEW OFFERS EVERYDAY ON EVERYTHING"
+          : "عروض كل يوم، على كل حاجة"}
       </div>
       {/* home cats */}
       <div
@@ -775,7 +842,11 @@ const Home = () => {
           <img
             className="home-elecs-sale-image"
             style={{ borderRadius: "4px", maxWidth: "100%" }}
-            src="https://eg.jumia.is/cms/29-22/UNs/Tv-Gaming-Electronics/1152x252_AR-(1).jpg"
+            src={
+              lang == "en"
+                ? "https://eg.jumia.is/cms/29-22/UNs/Tv-Gaming-Electronics/1152x252_-EN-(1).jpg"
+                : "https://eg.jumia.is/cms/29-22/UNs/Tv-Gaming-Electronics/1152x252_AR-(1).jpg"
+            }
             alt=""
           />
         </Link>
@@ -856,6 +927,63 @@ const Home = () => {
         </span>
       </div>
       {/* Footer */}
+      <div
+        className="home-footer"
+        style={{
+          justifyContent: "center",
+          alignItems: "center",
+          padding: "2rem",
+          paddingLeft: "1rem",
+          paddingRight: "1rem",
+          backgroundColor: "#282828",
+          marginTop: "1rem",
+          borderRadius: "4px",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <img style={{ width: "100px" }} src={jumiaLogo} alt="" />{" "}
+        <span style={{ color: "white", marginBottom: "25px" }}>
+          {lang == "en"
+            ? "Are You New To jumia? SignUp Now"
+            : "هل أنت جديد؟ سجل دخولك الان "}
+        </span>
+        <div className="email-form">
+          <input
+            type="text"
+            placeholder="enter your email"
+            style={{ borderRadius: "4px", borderColor: "transparent" }}
+          />
+          <input
+            type="submit"
+            value={"male"}
+            style={{
+              marginLeft: "1rem",
+              marginRight: "1rem",
+              borderRadius: "4px",
+              borderColor: "white",
+              background: "none",
+              borderWidth: "1px",
+              color: "white",
+              width: "50px",
+              height: "30px",
+            }}
+          />
+          <input
+            type="submit"
+            value={"female"}
+            style={{
+              borderRadius: "4px",
+              borderColor: "white",
+              background: "none",
+              borderWidth: "1px",
+              color: "white",
+              width: "60px",
+              height: "30px",
+            }}
+          />
+        </div>
+      </div>
     </div>
   );
 };

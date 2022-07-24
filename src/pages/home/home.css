@@ -19,7 +19,7 @@
 .home-cat-bar ul{
     padding-inline-start: 0 !important;
 }
-.home-free-shipping-image:hover , .amazingdeals-parent-image:hover , .home-cats-card:hover{
+.home-free-shipping-image:hover , .amazingdeals-parent-image:hover , .home-cats-card:hover , .home-elecs-sale-image:hover{
     transform: scale(.95);
 }
 .home-bestoffer-products img {
@@ -29,12 +29,30 @@
     color: black !important;
     text-decoration: none !important;
 }
+.home-footer img{
+    filter: brightness(20);
+    width: 200px !important;
+}
+.home-footer input[type="submit"]:hover{
+    border-color: orange !important;
+    color: orange !important;
+}
 @media screen and (min-width:1400px) {
     .home-page-parent{
         width: 1185px !important;
     }
 }
-@media screen and (max-width:1150px) {
+@media screen and (max-width:662px) {
+    .home-page-parent{
+        width: 90vw !important;
+    }
+}
+@media screen and (max-width:450px) {
+    .home-page-parent{
+        width: 95vw !important;
+    }
+}
+@media screen and (max-width:1365px) {
     .side-nav-sales{
         display: none !important;
     }
@@ -42,6 +60,12 @@
 @media screen and (max-width:950px) {
     .home-cat-bar{
         display: none !important;
+    }
+    
+}
+@media screen and (max-width:950px) {
+    .home-cats-parent{
+        font-size: 13px !important;
     }
     
 }

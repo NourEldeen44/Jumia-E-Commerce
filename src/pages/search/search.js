@@ -35,7 +35,6 @@ const Search = () => {
   const [products, setproducts] = useState([]);
   const { lang, setlang } = useContext(langContext);
   const prdIDS = [];
-  var prds = [];
   useEffect(() => {
     search();
   }, [location]);
@@ -76,7 +75,10 @@ const Search = () => {
         if (!q.empty) {
           q.forEach((res) => {
             if (res.exists() && !prdIDS.includes(res.id)) {
-              setproducts((products) => [...products, res.data()]);
+              setproducts((products) => [
+                ...products,
+                { ...res.data(), productID: res.id },
+              ]);
               // console.log(products);
               prdIDS.push(res.id);
             }
@@ -89,7 +91,10 @@ const Search = () => {
             if (!q.empty) {
               q.forEach((res) => {
                 if (res.exists() && !prdIDS.includes(res.id)) {
-                  setproducts((products) => [...products, res.data()]);
+                  setproducts((products) => [
+                    ...products,
+                    ...{ ...res.data(), productID: res.id },
+                  ]);
                   // console.log(products);
                   prdIDS.push(res.id);
                 }
@@ -100,7 +105,10 @@ const Search = () => {
                 if (!q.empty) {
                   q.forEach((res) => {
                     if (res.exists() && !prdIDS.includes(res.id)) {
-                      setproducts((products) => [...products, res.data()]);
+                      setproducts((products) => [
+                        ...products,
+                        { ...res.data(), productID: res.id },
+                      ]);
                       // console.log(products);
                       prdIDS.push(res.id);
                     }
@@ -112,7 +120,10 @@ const Search = () => {
                       q.forEach((res) => {
                         const docRef = doc(fireStore, `products/${res.id}`);
                         if (res.exists() && !prdIDS.includes(res.id)) {
-                          setproducts((products) => [...products, res.data()]);
+                          setproducts((products) => [
+                            ...products,
+                            { ...res.data(), productID: res.id },
+                          ]);
                           // console.log(products);
                           prdIDS.push(res.id);
                         }
@@ -163,7 +174,7 @@ const Search = () => {
                 }}
               >
                 <Link
-                  to={`/search=${index}`}
+                  to={`/search=${product.productID}`}
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <img
@@ -233,7 +244,13 @@ const Search = () => {
                 </Link>
                 <button
                   className="btn btn-warning "
-                  onClick={() => {}}
+                  onClick={() => {
+                    localStorage.setItem(
+                      index.toString(),
+                      products[index].productID
+                    );
+                    alert(products[index].productID + "was added");
+                  }}
                   style={{
                     backgroundColor: "darkorange",
                     color: "white",

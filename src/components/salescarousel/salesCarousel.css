@@ -8,9 +8,9 @@
         margin-right: 15px;
     }
 } */
-@media screen and (max-width:950px) {
+@media screen and (min-width:950px )and(max-width:1110px) {
     .navigation-and-sales{
-        /* min-width: 85vw ; */
-        /* min-height: 40vw; */
+       /* width:710px !important; */
+       height: 384px !important;
     }
 }
