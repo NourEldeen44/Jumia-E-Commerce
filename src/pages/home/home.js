@@ -235,6 +235,7 @@ const Home = () => {
           )
         : query(colRef, orderBy(orderby, "desc"), limit(limitation));
     //search by cat
+    const myPrds = [];
     getDocs(catQuery)
       .then((q) => {
         if (!q.empty) {
@@ -244,10 +245,12 @@ const Home = () => {
               !productsIDS.includes(res.id) &&
               products.length < 10
             ) {
-              setproducts((products) => [
-                ...products,
-                { ...res.data(), productID: res.id },
-              ]);
+              myPrds.push({ ...res.data(), productID: res.id });
+              // setproducts((products) => [
+              //   ...products,
+              //   { ...res.data(), productID: res.id },
+              // ]); Note Dont Use Causing render issue
+              setproducts(myPrds);
               console.log(lastProducts);
               productsIDS.push(res.id);
             }
