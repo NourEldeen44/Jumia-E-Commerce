@@ -1,0 +1,42 @@
+.hoverEffect:hover {
+    background-color: #e9e5e5;
+    text-shadow: -.25px -.25px 0 black,
+        .25px .25px black;
+}
+
+.hoverEffect {
+    background-color: white;
+}
+
+.buttonHover:hover {
+    background-color: #feefde;
+    border-radius: 6px;
+}
+
+.buttonHover {
+    font-size: .875rem;
+    color: #f68b1e;
+    font-weight: 500;
+    border: none;
+    padding: 5px;
+    background-color: white
+}
+
+.iconHover {
+    color: #f68b1e;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    padding-top: 7px;
+    font-weight: 500
+}
+
+
+.iconHover:hover {
+    background-color: #feefde;
+
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    padding-top: 7px
+}
