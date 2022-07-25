@@ -11,6 +11,7 @@ import Category from "./components/category/category";
 import Home from "./pages/home/home";
 import Cart from "./pages/cart/cart";
 
+import category from "./components/category/category";
 // import { useContext } from "react";
 
 function App() {
@@ -29,8 +30,8 @@ function App() {
             <Route exact path={"/home"} component={Home}></Route>
             <Route exact path={"/loream"} component={Loream}></Route>
             <Route exact path={"/search=:value"} component={Search}></Route>
-            <Route path={"/category/"} component={Category}></Route>
             <Route path={"/cart"} component={Cart}></Route>
+            <Route path={"/category/"} component={category}></Route>
           </Switch>
         </LangProvider>
       </Router>

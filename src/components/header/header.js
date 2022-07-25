@@ -40,6 +40,12 @@ const Header = () => {
   }, [localStorage.length]);
   const his = useHistory();
   const { lang, setlang } = useContext(langContext);
+  // on click of category icon push to category page with category as param and lang as param as well
+  const handleCategory = (category) => {
+    his.push(`/category/${category}`);
+    window.location.href = `/category/${category}`;
+  };
+
   return (
     <div
       className="header-main"
@@ -571,26 +577,36 @@ const Header = () => {
               menuVariant="light"
             >
               <NavDropdown.Item
-                href="Supermarket"
+                href="food"
                 style={{ textAlign: "initial" }}
+                onClick={(e) => handleCategory(e)}
               >
                 <FontAwesomeIcon icon={faAppleWhole} />{" "}
                 <span>{lang == "en" ? "Supermarket" : "سوبر ماركت"}</span>
               </NavDropdown.Item>
-              <NavDropdown.Item href="Fashion" style={{ textAlign: "initial" }}>
+              <NavDropdown.Item
+                onClick={(e) => handleCategory(e)}
+                href="Fashion"
+                style={{ textAlign: "initial" }}
+              >
                 <FontAwesomeIcon icon={faShirt} />{" "}
                 <span>{lang == "en" ? "Fashion" : "أزياء"}</span>
               </NavDropdown.Item>
               <NavDropdown.Item
                 href="Electronics"
+                onClick={(e) => handleCategory(e)}
                 style={{ textAlign: "initial" }}
               >
                 <FontAwesomeIcon icon={faComputer} />{" "}
                 <span>{lang == "en" ? "Electronics" : "إلكترونيات"}</span>
               </NavDropdown.Item>
-              <NavDropdown.Item href="Gaming" style={{ textAlign: "initial" }}>
+              <NavDropdown.Item
+                onClick={(e) => handleCategory(e)}
+                href="Gamming"
+                style={{ textAlign: "initial" }}
+              >
                 <FontAwesomeIcon icon={faGamepad} />{" "}
-                <span>{lang == "en" ? "Gaming" : "ألعاب"}</span>
+                <span>{lang == "en" ? "Gamming" : "ألعاب"}</span>
               </NavDropdown.Item>
             </NavDropdown>
           </div>
