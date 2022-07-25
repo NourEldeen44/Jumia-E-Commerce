@@ -174,7 +174,7 @@ const Search = () => {
                 }}
               >
                 <Link
-                  to={`/search=${product.productID}`}
+                  to={`/productDetails/${product.productID}`}
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   <img

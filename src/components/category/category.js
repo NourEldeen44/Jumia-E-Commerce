@@ -80,7 +80,7 @@ const Category = () => {
                 }}
               >
                 <Link
-                  to={`/search=${index}`}
+                  to={`/search/${product.productID}`}
                   style={{ textDecoration: "none", color: "inherit" }}
                 >
                   {/* <img  onLoad={() => {setloading(false);}} className="card-img-top" src={loading == true ? loadingimg : product.imgurl} alt="Card image cap"/> */}
