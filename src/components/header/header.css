@@ -114,6 +114,7 @@ outline-width: 0;
     font-size: 12px;
     font-weight: 700;
 }
+
 @media screen and (max-width:991px) {
     .dropmenu{
         display: flex;

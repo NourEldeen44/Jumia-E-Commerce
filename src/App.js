@@ -9,6 +9,7 @@ import { LangProvider } from "./contexts/langContext";
 import Search from "./pages/search/search";
 import Category from "./components/category/category";
 import Home from "./pages/home/home";
+import Cart from "./pages/cart/cart";
 
 // import { useContext } from "react";
 
@@ -29,6 +30,7 @@ function App() {
             <Route exact path={"/loream"} component={Loream}></Route>
             <Route exact path={"/search=:value"} component={Search}></Route>
             <Route path={"/category/"} component={Category}></Route>
+            <Route path={"/cart"} component={Cart}></Route>
           </Switch>
         </LangProvider>
       </Router>

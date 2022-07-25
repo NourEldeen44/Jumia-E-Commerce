@@ -93,7 +93,7 @@ const Search = () => {
                 if (res.exists() && !prdIDS.includes(res.id)) {
                   setproducts((products) => [
                     ...products,
-                    ...{ ...res.data(), productID: res.id },
+                    { ...res.data(), productID: res.id },
                   ]);
                   // console.log(products);
                   prdIDS.push(res.id);
@@ -246,8 +246,14 @@ const Search = () => {
                   className="btn btn-warning "
                   onClick={() => {
                     localStorage.setItem(
-                      index.toString(),
-                      products[index].productID
+                      products[index].productID,
+                      !localStorage.getItem(products[index].productID)
+                        ? "1"
+                        : (
+                            parseInt(
+                              localStorage.getItem(products[index].productID)
+                            ) + 1
+                          ).toString()
                     );
                     alert(products[index].productID + "was added");
                   }}

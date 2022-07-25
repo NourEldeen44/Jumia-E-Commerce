@@ -25,9 +25,19 @@ import { NavDropdown } from "react-bootstrap";
 import "./header.css";
 // import { useHistory } from "react-router-dom";
 import { Link, useHistory } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { langContext } from "../../contexts/langContext";
 const Header = () => {
+  const [cartCount, setcartCount] = useState(0);
+  useEffect(() => {
+    var myCartCount = 0;
+    for (var i = 0; i < localStorage.length; i++) {
+      myCartCount =
+        myCartCount + parseInt(localStorage.getItem(localStorage.key(i)));
+      // console.log(myCartCount);
+    }
+    setcartCount(myCartCount);
+  }, [localStorage.length]);
   const his = useHistory();
   const { lang, setlang } = useContext(langContext);
   return (
@@ -339,7 +349,20 @@ const Header = () => {
                       size="2x"
                       color="black"
                     />
-                    <div className="cart-count">{localStorage.length}</div>
+                    <div
+                      className="cart-count"
+                      style={
+                        cartCount != 0 && lang == "en"
+                          ? { visibility: "visible", left: "30%", right: "0%" }
+                          : cartCount != 0 && lang == "ar"
+                          ? { visibility: "visible", left: "0%", right: "5%" }
+                          : cartCount == 0
+                          ? { visibility: "hidden" }
+                          : {}
+                      }
+                    >
+                      {cartCount}
+                    </div>
                     <span
                       style={
                         lang == "en"
