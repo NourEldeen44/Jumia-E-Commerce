@@ -239,12 +239,16 @@ const Home = () => {
       .then((q) => {
         if (!q.empty) {
           q.forEach((res) => {
-            if (res.exists() && !productsIDS.includes(res.id)) {
+            if (
+              res.exists() &&
+              !productsIDS.includes(res.id) &&
+              products.length < 10
+            ) {
               setproducts((products) => [
                 ...products,
                 { ...res.data(), productID: res.id },
               ]);
-              // //console.log(lastProducts);
+              console.log(lastProducts);
               productsIDS.push(res.id);
             }
           });

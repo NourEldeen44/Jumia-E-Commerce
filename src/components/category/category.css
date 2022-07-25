@@ -33,7 +33,7 @@
 .card button{
     visibility: hidden;
 }
-.card:hover {
+.category-card-parent .card:hover {
     transform: scale(.95);
 }
 .card:hover button{

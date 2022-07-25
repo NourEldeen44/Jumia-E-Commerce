@@ -124,7 +124,7 @@ const Header = () => {
                 className="jumialogo"
               /> */}
             {/* </button> */}
-            <Link to="/loream" className="nav-link logoHolder">
+            <Link to="/" className="nav-link logoHolder">
               <img
                 src={jumialogo}
                 alt="jumia Svg"
@@ -340,10 +340,10 @@ const Header = () => {
                   </ul>
                 </li>
                 <li className="nav-item">
-                  <a
+                  <Link
                     className="nav-link nav-main active text-dark"
                     aria-current="page"
-                    href="#"
+                    to="/cart"
                     style={{
                       display: "flex",
                       alignItems: "flex-end",
@@ -386,7 +386,7 @@ const Header = () => {
                     >
                       {lang == "en" ? "Cart" : "السلة"}
                     </span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

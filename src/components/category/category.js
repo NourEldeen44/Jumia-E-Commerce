@@ -67,6 +67,7 @@ const Category = () => {
                 zIndex: "2",
                 width: "fit-content",
               }}
+              className="category-card-parent"
             >
               <div
                 className="card"
