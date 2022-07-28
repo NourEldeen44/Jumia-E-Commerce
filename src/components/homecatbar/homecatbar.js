@@ -36,7 +36,7 @@ const Homecatbar = () => {
       }
     >
       <ul className="list-group list-group-flush">
-        <Link to="/category/supermarket">
+        <Link to="/category/food">
           <li className="list-group-item">
             {"  "}
             <FontAwesomeIcon icon={faAppleWhole} />

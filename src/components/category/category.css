@@ -13,7 +13,7 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
-    .card{
+    .cardBox .card{
         width: fit-content !important;
         margin-left: 3px !important;
         margin-right:3px !important;
@@ -23,14 +23,14 @@
     /* .cardBox{
         width: 90vw !important;
     } */
-    .card{
+    .cardBox .card{
         width: 85vw !important;
     }
 }
 .cardBox div{
     font-size: .85rem;
 }
-.card button{
+.cardBox .card button{
     visibility: hidden;
 }
 .category-card-parent .card:hover {
