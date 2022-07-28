@@ -61,7 +61,7 @@ const Homecatbar = () => {
             <span> {lang == "en" ? "Gaming" : "ألعاب"}</span>
           </li>
         </Link>
-        <Link to="/category/supermarket">
+        <Link to="/category/food">
           <li className="list-group-item">
             {"  "}
             <FontAwesomeIcon icon={faAppleWhole} />
@@ -86,7 +86,7 @@ const Homecatbar = () => {
             <span> {lang == "en" ? "Gaming" : "ألعاب"}</span>
           </li>
         </Link>
-        <Link to="/category/supermarket">
+        <Link to="/category/food">
           <li className="list-group-item">
             {"  "}
             <FontAwesomeIcon icon={faAppleWhole} />
