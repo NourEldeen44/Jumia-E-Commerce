@@ -671,7 +671,7 @@ const Home = () => {
           textAlign: "center",
         }}
       >
-        {lang == "eng"
+        {lang == "en"
           ? "NEW OFFERS EVERYDAY ON EVERYTHING"
           : "عروض كل يوم، على كل حاجة"}
       </div>
