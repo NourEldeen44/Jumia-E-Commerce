@@ -14,7 +14,6 @@ import { useContext } from "react";
 import { langContext } from "../../contexts/langContext";
 import Homecatbar from "../../components/homecatbar/homecatbar";
 import flashSalesImage from "../../images/flashsales.png";
-import jumiaLogo from "../../images/Jumia-Logo.png";
 import {
   addDoc,
   collection,
@@ -32,6 +31,7 @@ import {
   limit,
 } from "@firebase/firestore";
 import ProductSnapscroll from "../../components/products snapscroll/productsSnapscroll";
+import Footer from "../../components/footer/footer";
 const Home = () => {
   //initializer
   const { lang, setlang } = useContext(langContext);
@@ -932,64 +932,6 @@ const Home = () => {
             ? "Jumia is an easy platform to use when you’re online shopping for any type of products you’re looking for. Even if you’re just browsing, we assure you that you will find something you like in our catalog. Our clothing store provides you with over one million products and variations to choose from! You can shop for anything you need from women fashion to baby clothes and get the latest fashion. Jumia Egypt is one of the biggest online shopping sites because we always try to expand our catalog to provide any possible products or gadgets our customer could be searching to buy online!"
             : "جوميا هي موقع تسوق الكتروني ممتع وسهل الاستخدام عند الحاجة إلي شراء أي نوع من المنتجات والأجهزة. نؤكد لك أنك ستعثر على شيء يعجبك في الكتالوج الخاص بنا عند التصفح عبر الانترنت في جوميا مصر. نوفر لكم كتالوج ملابس اون لاين يحتوي علي أكثر من مليون منتج للاختيار من بينهم! يمكنك التسوق لأي شيء تحتاجه سواء كنت تبحث عن ملابس محجبات او ملابس الأطفال واستمتع بالحصول علي احدث الازياء في مصر. جوميا مصر هي واحدة من أكبر مواقع تسوق اون لاين لأننا نسعى دائمًا إلى توسيع الكتالوج الخاص بنا لتقديم جميع المنتجات والاجهزة التي يمكن لعملائنا أن يبحثوا عن شرائها عبر الإنترنت."}
         </span>
-      </div>
-      {/* Footer */}
-      <div
-        className="home-footer"
-        style={{
-          justifyContent: "center",
-          alignItems: "center",
-          padding: "2rem",
-          paddingLeft: "1rem",
-          paddingRight: "1rem",
-          backgroundColor: "#282828",
-          marginTop: "1rem",
-          borderRadius: "4px",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <img style={{ width: "100px" }} src={jumiaLogo} alt="" />{" "}
-        <span style={{ color: "white", marginBottom: "25px" }}>
-          {lang == "en"
-            ? "Are You New To jumia? SignUp Now"
-            : "هل أنت جديد؟ سجل دخولك الان "}
-        </span>
-        <div className="email-form">
-          <input
-            type="text"
-            placeholder="enter your email"
-            style={{ borderRadius: "4px", borderColor: "transparent" }}
-          />
-          <input
-            type="submit"
-            value={"male"}
-            style={{
-              marginLeft: "1rem",
-              marginRight: "1rem",
-              borderRadius: "4px",
-              borderColor: "white",
-              background: "none",
-              borderWidth: "1px",
-              color: "white",
-              width: "50px",
-              height: "30px",
-            }}
-          />
-          <input
-            type="submit"
-            value={"female"}
-            style={{
-              borderRadius: "4px",
-              borderColor: "white",
-              background: "none",
-              borderWidth: "1px",
-              color: "white",
-              width: "60px",
-              height: "30px",
-            }}
-          />
-        </div>
       </div>
     </div>
   );

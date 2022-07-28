@@ -13,6 +13,7 @@ import Cart from "./pages/cart/cart";
 
 import category from "./components/category/category";
 import ProductDetails from "./pages/productDetails/productDetails";
+import Footer from "./components/footer/footer";
 // import { useContext } from "react";
 
 function App() {
@@ -33,8 +34,12 @@ function App() {
             <Route exact path={"/search=:value"} component={Search}></Route>
             <Route path={"/cart"} component={Cart}></Route>
             <Route path={"/category/"} component={category}></Route>
-            <Route path={"/productDetails/:id"} component={ProductDetails}></Route>
+            <Route
+              path={"/productDetails/:id"}
+              component={ProductDetails}
+            ></Route>
           </Switch>
+          <Footer />
         </LangProvider>
       </Router>
     </div>

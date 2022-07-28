@@ -41,10 +41,10 @@ const Header = () => {
   const his = useHistory();
   const { lang, setlang } = useContext(langContext);
   // on click of category icon push to category page with category as param and lang as param as well
-  const handleCategory = (category) => {
-    his.push(`/category/${category}`);
-    window.location.href = `/category/${category}`;
-  };
+  // const handleCategory = (category) => {
+  //   his.push(`/category/${category}`);
+  //   // window.location.href = `/category/${category}`;
+  // };
 
   return (
     <div
@@ -577,32 +577,28 @@ const Header = () => {
               menuVariant="light"
             >
               <NavDropdown.Item
-                href="food"
+                href="/category/food"
                 style={{ textAlign: "initial" }}
-                onClick={(e) => handleCategory(e)}
               >
                 <FontAwesomeIcon icon={faAppleWhole} />{" "}
                 <span>{lang == "en" ? "Supermarket" : "سوبر ماركت"}</span>
               </NavDropdown.Item>
               <NavDropdown.Item
-                onClick={(e) => handleCategory(e)}
-                href="Fashion"
+                href="category/Fashion"
                 style={{ textAlign: "initial" }}
               >
                 <FontAwesomeIcon icon={faShirt} />{" "}
                 <span>{lang == "en" ? "Fashion" : "أزياء"}</span>
               </NavDropdown.Item>
               <NavDropdown.Item
-                href="Electronics"
-                onClick={(e) => handleCategory(e)}
+                href="category/Electronics"
                 style={{ textAlign: "initial" }}
               >
                 <FontAwesomeIcon icon={faComputer} />{" "}
                 <span>{lang == "en" ? "Electronics" : "إلكترونيات"}</span>
               </NavDropdown.Item>
               <NavDropdown.Item
-                onClick={(e) => handleCategory(e)}
-                href="Gamming"
+                href="category/Gamming"
                 style={{ textAlign: "initial" }}
               >
                 <FontAwesomeIcon icon={faGamepad} />{" "}
