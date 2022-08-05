@@ -14,6 +14,8 @@ import Cart from "./pages/cart/cart";
 import category from "./components/category/category";
 import ProductDetails from "./pages/productDetails/productDetails";
 import Footer from "./components/footer/footer";
+import Register from "./pages/auth/register";
+import LogIn from "./pages/auth/logIn";
 // import { useContext } from "react";
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
           <Switch>
             <Route exact path={"/"} component={Home}></Route>
             <Route exact path={"/home"} component={Home}></Route>
+            <Route exact path={"/register"} component={Register}></Route>
+            <Route exact path={"/login"} component={LogIn}></Route>
             <Route exact path={"/loream"} component={Loream}></Route>
             <Route exact path={"/search=:value"} component={Search}></Route>
             <Route path={"/cart"} component={Cart}></Route>

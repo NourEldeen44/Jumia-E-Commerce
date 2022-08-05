@@ -13,7 +13,7 @@ const Cart = () => {
   const handleCart = () => {
     const myCart = [];
     for (var i = 0; i < localStorage.length; i++) {
-      if (!cart.includes(localStorage.key(i))) {
+      if (!cart.includes(localStorage.key(i)) && localStorage.key(i) != "UID") {
         // myCart.push(`${localStorage.key(i)}`);
         // myCart = [...myCart, `${localStorage.key(i)}`]; Note: Render Problem Cant use this state!!!!!!!!!!!!!!!!!
         // setcart((cart) => [...cart, localStorage.getItem(localStorage.key(i))]);

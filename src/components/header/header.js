@@ -32,9 +32,11 @@ const Header = () => {
   useEffect(() => {
     var myCartCount = 0;
     for (var i = 0; i < localStorage.length; i++) {
-      myCartCount =
-        myCartCount + parseInt(localStorage.getItem(localStorage.key(i)));
-      // console.log(myCartCount);
+      if (localStorage.key(i) != "UID") {
+        myCartCount =
+          myCartCount + parseInt(localStorage.getItem(localStorage.key(i)));
+        // console.log(myCartCount);
+      }
     }
     setcartCount(myCartCount);
   }, [localStorage.length]);
@@ -227,7 +229,12 @@ const Header = () => {
                     aria-labelledby="AccountDropdown"
                   >
                     <li className="d-flex align-items-center mt-2">
-                      <button className="sign btn search-button  text-white mx-auto w-75">
+                      <button
+                        className="sign btn search-button  text-white mx-auto w-75"
+                        onClick={() => {
+                          his.push("/login");
+                        }}
+                      >
                         {lang == "en" ? "Sign In" : "تسجيل الدخول"}
                       </button>
                     </li>
@@ -430,7 +437,12 @@ const Header = () => {
                     aria-labelledby="AccountDropdown"
                   >
                     <li className="d-flex align-items-center mt-2">
-                      <button className="sign btn search-button  text-white mx-auto w-75">
+                      <button
+                        className="sign btn search-button  text-white mx-auto w-75"
+                        onClick={() => {
+                          his.push("/login");
+                        }}
+                      >
                         {lang == "en" ? "Sign In" : "تسجيل الدخول"}
                       </button>
                     </li>
