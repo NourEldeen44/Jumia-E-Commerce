@@ -1,7 +1,14 @@
 /* eslint-disable eqeqeq */
 import { useState, useEffect } from "react";
-import { getAuth, createUserWithEmailAndPassword } from "@firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateEmail,
+  updateCurrentUser,
+} from "@firebase/auth";
 import { useHistory } from "react-router-dom";
+import { setDoc, collection, doc, addDoc } from "@firebase/firestore";
+import { firestore } from "../../firebase";
 function Register() {
   const [user, setUser] = useState({
     userName: "",
@@ -105,11 +112,21 @@ function Register() {
     ) {
       alert(`please fill confirmed password`);
     } else {
+      //reg withfirebase auth
       const auth = getAuth();
       setregLoading(true);
       createUserWithEmailAndPassword(auth, user.userEmail, user.Password)
         .then((usercred) => {
           setregLoading(false);
+          const docRef = doc(firestore, `users/${usercred.user.uid}`);
+          const userData = {
+            useremail: usercred.user.email,
+            password: user.Password,
+            username: user.userName,
+            favourites: "",
+            orders: "",
+          };
+          setDoc(docRef, userData);
           localStorage.setItem("UID", usercred.user.uid);
           window.location.reload();
         })
@@ -117,7 +134,6 @@ function Register() {
           alert(err);
         });
     }
-    //reg withfirebase auth
   };
   useEffect(() => {
     //redirect to home if logged in
