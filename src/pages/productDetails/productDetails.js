@@ -245,17 +245,7 @@ function ProductDetails(props) {
                               {" "}
                               {productData.price}
                             </p>{" "}
-                            <span
-                              class="ms-1"
-                              style={{
-                                height: "25px",
-                                backgroundColor: "#feefde",
-                                color: "#f68d26",
-                              }}
-                            >
-                              {" "}
-                              - 10%
-                            </span>{" "}
+
                           </div>
 
                           <p class="">
