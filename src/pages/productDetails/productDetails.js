@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React from "react";
 // import Details from './Details';
 import { useEffect, useState } from "react";
@@ -23,8 +24,8 @@ function ProductDetails(props) {
   }, []);
 
   return (
-    < >
-      <div  >
+    <>
+      <div>
         <div
           id="detailsMain"
           ref={mainRef}
@@ -52,13 +53,18 @@ function ProductDetails(props) {
                 >
                   <div class="" style={{ maxWidth: "540px;" }}>
                     <div class="row">
-                      <div class="col-md-5" >
+                      <div class="col-md-5">
                         <img
                           src={productData.imgurl}
                           class="img-fluid rounded-start pb-3 border-bottom"
                           alt="..."
                         />
-                        <h6 class=" ps-2"> {lang == "en" ? "SHARE THIS PRODUCT" : "مشاركة هذا المنتج"}</h6>
+                        <h6 class=" ps-2">
+                          {" "}
+                          {lang == "en"
+                            ? "SHARE THIS PRODUCT"
+                            : "مشاركة هذا المنتج"}
+                        </h6>
                         <div class="text-start ps-2">
                           <a
                             href=""
@@ -97,7 +103,9 @@ function ProductDetails(props) {
                                   fontSize: "12px",
                                 }}
                               >
-                                {lang == "en" ? "Official Store" : "المتجر الرسمي"}
+                                {lang == "en"
+                                  ? "Official Store"
+                                  : "المتجر الرسمي"}
                               </small>
                             </p>
 
@@ -217,7 +225,9 @@ function ProductDetails(props) {
                                 class="ms-1 text-decoration-none "
                                 style={{ color: "#3872bc" }}
                               >
-                                {lang == "en" ? "(1 verified rating)" : "( 1 تقيمات موثوقه للمنتج)"}
+                                {lang == "en"
+                                  ? "(1 verified rating)"
+                                  : "( 1 تقيمات موثوقه للمنتج)"}
                               </a>
                             </span>
                           </span>
@@ -225,17 +235,17 @@ function ProductDetails(props) {
                             {" "}
                             {lang == "en"
                               ? `${Math.ceil(
-                                productData.price -
-                                (parseInt(productData.price) *
-                                  parseInt(productData.offer)) /
-                                100
-                              ).toFixed(2)}EGP`
+                                  productData.price -
+                                    (parseInt(productData.price) *
+                                      parseInt(productData.offer)) /
+                                      100
+                                ).toFixed(2)}EGP`
                               : `${Math.ceil(
-                                productData.price -
-                                (parseInt(productData.price) *
-                                  parseInt(productData.offer)) /
-                                100
-                              ).toFixed(2)}جنيه`}{" "}
+                                  productData.price -
+                                    (parseInt(productData.price) *
+                                      parseInt(productData.offer)) /
+                                      100
+                                ).toFixed(2)}جنيه`}{" "}
                           </h3>
                           <div class="d-flex">
                             <p
@@ -245,7 +255,6 @@ function ProductDetails(props) {
                               {" "}
                               {productData.price}
                             </p>{" "}
-
                           </div>
 
                           <p class="">
@@ -257,8 +266,9 @@ function ProductDetails(props) {
                                 fontWeight: "500",
                               }}
                             >
-
-                              {lang == "en" ? "Free delivery (you are saving EGP 10.83) to 6th of October" : "توصيل مجاني لحد 6 اكتوبر"}
+                              {lang == "en"
+                                ? "Free delivery (you are saving EGP 10.83) to 6th of October"
+                                : "توصيل مجاني لحد 6 اكتوبر"}
                             </small>
                           </p>
                         </div>
@@ -270,8 +280,9 @@ function ProductDetails(props) {
                               !localStorage.getItem(productID)
                                 ? "1"
                                 : (
-                                  parseInt(localStorage.getItem(productID)) + 1
-                                ).toString()
+                                    parseInt(localStorage.getItem(productID)) +
+                                    1
+                                  ).toString()
                             );
                             alert(productID + "was added");
                           }}
@@ -284,7 +295,12 @@ function ProductDetails(props) {
                             color: "white",
                           }}
                         >
-                          <span class="fw-bold"> {lang == "en" ? "ADD TO CART" : "اضافه لسله التسوق"} </span>
+                          <span class="fw-bold">
+                            {" "}
+                            {lang == "en"
+                              ? "ADD TO CART"
+                              : "اضافه لسله التسوق"}{" "}
+                          </span>
                         </button>
                         <h6 class="border-top pt-1">
                           {lang == "en" ? "PROMOTIONS" : "عروض"}
@@ -297,7 +313,9 @@ function ProductDetails(props) {
                             style={{ color: "#3872bc" }}
                           >
                             {" "}
-                            {lang == "en" ? "Enjoy instalments from 6 months to 60 months with valU" : " تقسيط على مزاجك من 6 شهور الى 60 شهر مع فاليو"}{" "}
+                            {lang == "en"
+                              ? "Enjoy instalments from 6 months to 60 months with valU"
+                              : " تقسيط على مزاجك من 6 شهور الى 60 شهر مع فاليو"}{" "}
                           </a>{" "}
                         </div>
                         <div class="pb-1 ">
@@ -308,7 +326,9 @@ function ProductDetails(props) {
                             style={{ color: "#3872bc" }}
                           >
                             {" "}
-                            {lang == "en" ? "Check our daily Flash Sales offers" : "استمتع بعروض Flash Sales كل يوم"}{" "}
+                            {lang == "en"
+                              ? "Check our daily Flash Sales offers"
+                              : "استمتع بعروض Flash Sales كل يوم"}{" "}
                           </a>{" "}
                         </div>
                         <div class=" pb-1 ">
@@ -319,7 +339,9 @@ function ProductDetails(props) {
                             style={{ color: "#3872bc" }}
                           >
                             {" "}
-                            {lang == "en" ? "Your July landline bill is available now, pay it from here in seconds!" : "!فاتورة يوليو لخط تليفونك الأرضي متاحة الأن، ادفعها من هنا في ثواني"}{" "}
+                            {lang == "en"
+                              ? "Your July landline bill is available now, pay it from here in seconds!"
+                              : "!فاتورة يوليو لخط تليفونك الأرضي متاحة الأن، ادفعها من هنا في ثواني"}{" "}
                           </a>{" "}
                         </div>
                       </div>
@@ -342,7 +364,9 @@ function ProductDetails(props) {
                         style={{ paddingLeft: "5px" }}
                       >
                         {" "}
-                        {lang == "en" ? "Report incorrect product information" : "إبلاغ عن بيانات غير صحيحة في المنتج"}{" "}
+                        {lang == "en"
+                          ? "Report incorrect product information"
+                          : "إبلاغ عن بيانات غير صحيحة في المنتج"}{" "}
                       </a>{" "}
                     </div>
                     <div style={{ width: "50%", color: "black" }}></div>
@@ -370,7 +394,6 @@ function ProductDetails(props) {
 
                   <div
                     style={{
-
                       paddingLeft: "10px",
                       paddingTop: "18px",
                       paddingBottom: "18px",
@@ -432,7 +455,9 @@ function ProductDetails(props) {
                         class="border-bottom"
                       >
                         {" "}
-                        {lang == "en" ? "KEY FEATURES" : "المواصفات الرئيسية"}{" "}
+                        {lang == "en"
+                          ? "KEY FEATURES"
+                          : "المواصفات الرئيسية"}{" "}
                       </p>
                       <p>
                         {/* we should loop here when we get the details from firebase
@@ -503,7 +528,9 @@ function ProductDetails(props) {
 
                       <div style={{ display: "flex", paddingLeft: "12px" }}>
                         <div style={{ fontWeight: "700" }}>
-                          {lang == "en" ? "Main Material: " : "الخامه الرئيسية:"}{" "}
+                          {lang == "en"
+                            ? "Main Material: "
+                            : "الخامه الرئيسية:"}{" "}
                         </div>
                         <div style={{ paddingLeft: "4px" }}>
                           {" "}
@@ -553,7 +580,9 @@ function ProductDetails(props) {
                     class="border-bottom"
                   >
                     {" "}
-                    {lang == "en" ? "Customers who viewed this also viewed" : "شاهد العملاء أيضًا"}
+                    {lang == "en"
+                      ? "Customers who viewed this also viewed"
+                      : "شاهد العملاء أيضًا"}
                   </h5>
                   <div> products scroller </div>
                 </div>
@@ -595,7 +624,9 @@ function ProductDetails(props) {
                   >
                     <h5 style={{ textAlign: "start" }}>
                       {" "}
-                      {lang == "en" ? "Verified Customer Feedback" : "اراء العملاء الموثقه"}{" "}
+                      {lang == "en"
+                        ? "Verified Customer Feedback"
+                        : "اراء العملاء الموثقه"}{" "}
                     </h5>
                     <p
                       style={{
@@ -629,7 +660,9 @@ function ProductDetails(props) {
                         }}
                       >
                         {" "}
-                        {lang == "en" ? "VERIFIED RATINGS (13)" : " 13  تقييمات موثقة للمنتج"}{" "}
+                        {lang == "en"
+                          ? "VERIFIED RATINGS (13)"
+                          : " 13  تقييمات موثقة للمنتج"}{" "}
                       </p>
                       <div
                         style={{
@@ -726,7 +759,9 @@ function ProductDetails(props) {
                           </span>
                         </div>
                         <div style={{ height: "25%", textAlign: "center" }}>
-                          {lang == "en" ? " 13 VERIFIED RATINGS" : " 13 تقييمات موثقة للمنتج"}
+                          {lang == "en"
+                            ? " 13 VERIFIED RATINGS"
+                            : " 13 تقييمات موثقة للمنتج"}
                         </div>
                       </div>
 
@@ -745,7 +780,9 @@ function ProductDetails(props) {
                             {" "}
                             5{" "}
                           </div>
-                          <div style={{ fontWeight: "500", paddingLeft: "5px" }}>
+                          <div
+                            style={{ fontWeight: "500", paddingLeft: "5px" }}
+                          >
                             {" "}
                             <span>
                               {" "}
@@ -795,7 +832,9 @@ function ProductDetails(props) {
                             {" "}
                             4{" "}
                           </div>
-                          <div style={{ fontWeight: "500", paddingLeft: "5px" }}>
+                          <div
+                            style={{ fontWeight: "500", paddingLeft: "5px" }}
+                          >
                             {" "}
                             <span>
                               {" "}
@@ -845,7 +884,9 @@ function ProductDetails(props) {
                             {" "}
                             3{" "}
                           </div>
-                          <div style={{ fontWeight: "500", paddingLeft: "5px" }}>
+                          <div
+                            style={{ fontWeight: "500", paddingLeft: "5px" }}
+                          >
                             {" "}
                             <span>
                               {" "}
@@ -895,7 +936,9 @@ function ProductDetails(props) {
                             {" "}
                             2{" "}
                           </div>
-                          <div style={{ fontWeight: "500", paddingLeft: "5px" }}>
+                          <div
+                            style={{ fontWeight: "500", paddingLeft: "5px" }}
+                          >
                             {" "}
                             <span>
                               {" "}
@@ -945,7 +988,9 @@ function ProductDetails(props) {
                             {" "}
                             1{" "}
                           </div>
-                          <div style={{ fontWeight: "500", paddingLeft: "5px" }}>
+                          <div
+                            style={{ fontWeight: "500", paddingLeft: "5px" }}
+                          >
                             {" "}
                             <span>
                               {" "}
@@ -994,7 +1039,9 @@ function ProductDetails(props) {
                         }}
                       >
                         {" "}
-                        {lang == "en" ? "PRODUCT REVIEWS (13)" : "تعلييقات المنتج (13)"} {" "}
+                        {lang == "en"
+                          ? "PRODUCT REVIEWS (13)"
+                          : "تعلييقات المنتج (13)"}{" "}
                       </p>
 
                       <div
@@ -1358,7 +1405,10 @@ function ProductDetails(props) {
                               {" "}
                               20-07-2022{" "}
                             </div>
-                            <div> {lang == "en" ? "By" : "بواسطه"} Nadine Mounir </div>
+                            <div>
+                              {" "}
+                              {lang == "en" ? "By" : "بواسطه"} Nadine Mounir{" "}
+                            </div>
                           </div>
                           <div
                             style={{
@@ -1396,13 +1446,14 @@ function ProductDetails(props) {
                 >
                   <h5
                     style={{
-
                       paddingLeft: "10px",
                       width: "100%",
                     }}
                     class="border-bottom"
                   >
-                    {lang == "en" ? "Sponsored products" : "منتجات ذات دعايه مدفوعة"}
+                    {lang == "en"
+                      ? "Sponsored products"
+                      : "منتجات ذات دعايه مدفوعة"}
                   </h5>
                   <div> products scroller </div>
                 </div>
@@ -1431,7 +1482,9 @@ function ProductDetails(props) {
                     style={{ fontSize: ".875rem", fontWeight: "500" }}
                   >
                     {" "}
-                    {lang == "en" ? "DELIVERY & RETURNS" : "التوصيل والارجاع"}{" "}
+                    {lang == "en"
+                      ? "DELIVERY & RETURNS"
+                      : "التوصيل والارجاع"}{" "}
                   </div>
                   <div class="">
                     Jumia{" "}
@@ -1444,7 +1497,9 @@ function ProductDetails(props) {
                     style={{ fontSize: ".75rem" }}
                   >
                     {" "}
-                    {lang == "en" ? "Order from Jumia Express items and get free shipping." : "توصيل مجاني عند شرائك من منتجات جوميا اكسبريس"}{" "}
+                    {lang == "en"
+                      ? "Order from Jumia Express items and get free shipping."
+                      : "توصيل مجاني عند شرائك من منتجات جوميا اكسبريس"}{" "}
                     <a
                       href=""
                       style={{
@@ -1459,7 +1514,9 @@ function ProductDetails(props) {
                   </div>
                   <div class=" fw-bolder p-1">
                     {" "}
-                    {lang == "en" ? "Choose your location" : "اختار العنوان"}{" "}
+                    {lang == "en"
+                      ? "Choose your location"
+                      : "اختار العنوان"}{" "}
                   </div>
                   {/* <div class="form-floating"> */}
                   <select
@@ -1520,7 +1577,9 @@ function ProductDetails(props) {
                             style={{ fontSize: ".875rem", fontWeight: "500" }}
                           >
                             {" "}
-                            {lang == "en" ? "Door Delivery" : "توصيل إلى باب المنزل"}
+                            {lang == "en"
+                              ? "Door Delivery"
+                              : "توصيل إلى باب المنزل"}
                           </span>
                           <a
                             href=""
@@ -1540,21 +1599,28 @@ function ProductDetails(props) {
                               fontWeight: "500",
                             }}
                           >
-                            {lang == "en" ? "Free delivery (you are saving EGP 22.23)" : "توصل مجاني (هتوفر 22.23 جنيه"}
+                            {lang == "en"
+                              ? "Free delivery (you are saving EGP 22.23)"
+                              : "توصل مجاني (هتوفر 22.23 جنيه"}
                           </small>
                         </p>
                         <p class="" style={{ fontSize: "12px" }}>
                           {" "}
-
-                          {lang == "en" ? "Delivery by" : "يتم التوصيل من يوم"}{" "}
+                          {lang == "en"
+                            ? "Delivery by"
+                            : "يتم التوصيل من يوم"}{" "}
                           <span style={{ fontWeight: "500" }}>
                             {" "}
                             {lang == "en" ? "27 July" : "27 يوليو"}{" "}
                           </span>{" "}
-                          {lang == "en" ? "when you order within next " : "عند الطلب خلال"}{" "}
+                          {lang == "en"
+                            ? "when you order within next "
+                            : "عند الطلب خلال"}{" "}
                           <span style={{ fontWeight: "500" }}>
                             {" "}
-                            {lang == "en" ? "20hrs 53mins" : "ساعتين و 53 دقيقه"}{" "}
+                            {lang == "en"
+                              ? "20hrs 53mins"
+                              : "ساعتين و 53 دقيقه"}{" "}
                           </span>
                         </p>
                       </div>
@@ -1616,20 +1682,28 @@ function ProductDetails(props) {
                               fontWeight: "500",
                             }}
                           >
-                            {lang == "en" ? "Free delivery (you are saving EGP 22.23)" : "توصل مجاني (هتوفر 22.23 جنيه"}
+                            {lang == "en"
+                              ? "Free delivery (you are saving EGP 22.23)"
+                              : "توصل مجاني (هتوفر 22.23 جنيه"}
                           </small>
                         </p>
                         <p class="" style={{ fontSize: "12px" }}>
                           {" "}
-                          {lang == "en" ? "Pickup by " : "يتم التوصيل من يوم"}{" "}
+                          {lang == "en"
+                            ? "Pickup by "
+                            : "يتم التوصيل من يوم"}{" "}
                           <span style={{ fontWeight: "500" }}>
                             {" "}
                             {lang == "en" ? "27 July" : "٢٦ يوليو"}{" "}
                           </span>{" "}
-                          {lang == "en" ? "when you order within next " : "عند الطلب خلال"}{" "}
+                          {lang == "en"
+                            ? "when you order within next "
+                            : "عند الطلب خلال"}{" "}
                           <span style={{ fontWeight: "500" }}>
                             {" "}
-                            {lang == "en" ? "20hrs 53mins" : "20 ساعه و 53 دقيقه"}{" "}
+                            {lang == "en"
+                              ? "20hrs 53mins"
+                              : "20 ساعه و 53 دقيقه"}{" "}
                           </span>
                         </p>
                       </div>
@@ -1682,7 +1756,9 @@ function ProductDetails(props) {
                           class=""
                           style={{ fontSize: "12px", paddingBottom: "10px" }}
                         >
-                          {lang == "en" ? "14 days free return (except for underwear and personal items) up to 30 days for defective products with necessity for requesting a return within 24 hours from the delivery date." : "استرجاع المنتجات مجاناً لمدة 14 يوم (ماعدا الملابس الداخلية ومنتجات الإستخدام الشخصى) وحتي 30 يوم للمنتجات التالفة مع ضرورة الإبلاغ عنها فى غضون 24 ساعة من تاريخ الإستلام."}{" "}
+                          {lang == "en"
+                            ? "14 days free return (except for underwear and personal items) up to 30 days for defective products with necessity for requesting a return within 24 hours from the delivery date."
+                            : "استرجاع المنتجات مجاناً لمدة 14 يوم (ماعدا الملابس الداخلية ومنتجات الإستخدام الشخصى) وحتي 30 يوم للمنتجات التالفة مع ضرورة الإبلاغ عنها فى غضون 24 ساعة من تاريخ الإستلام."}{" "}
                           <a
                             href="#"
                             class="text-decoration-none "
@@ -1750,7 +1826,9 @@ function ProductDetails(props) {
                     {lang == "en" ? "Have one to sell?" : "هل لديك منتج للبيع"}
                   </div>
                   <div style={{ fontSize: ".75rem" }}>
-                    {lang == "en" ? "click here to list you product" : "اضغط هنا لادراج منتجك"}
+                    {lang == "en"
+                      ? "click here to list you product"
+                      : "اضغط هنا لادراج منتجك"}
                   </div>
                 </div>
               </div>
@@ -1822,7 +1900,9 @@ function ProductDetails(props) {
                         <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
                       </svg>
                     </span>
-                    {lang == "en" ? "Verified Customer Feedback" : "اراء العملاء الموثقه"}
+                    {lang == "en"
+                      ? "Verified Customer Feedback"
+                      : "اراء العملاء الموثقه"}
                   </div>
                 </div>
               </div>
@@ -1833,7 +1913,9 @@ function ProductDetails(props) {
                 <div style={{ width: "100%" }}>
                   <div style={{ fontSize: ".875rem", textAlign: "center" }}>
                     {" "}
-                    {lang == "en" ? "Questions about this product?" : "أسئلة حول هذا المنتج؟"}
+                    {lang == "en"
+                      ? "Questions about this product?"
+                      : "أسئلة حول هذا المنتج؟"}
                   </div>
                   <button class="buttonHover" style={{ textAlign: "center" }}>
                     <span style={{ paddingRight: "8px", textAlign: "center" }}>

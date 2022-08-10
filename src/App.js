@@ -16,6 +16,7 @@ import ProductDetails from "./pages/productDetails/productDetails";
 import Footer from "./components/footer/footer";
 import Register from "./pages/auth/register";
 import LogIn from "./pages/auth/logIn";
+import Paypal from "./components/paypal/paypal";
 // import { useContext } from "react";
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
             <Route exact path={"/search=:value"} component={Search}></Route>
             <Route path={"/cart"} component={Cart}></Route>
             <Route path={"/category/"} component={category}></Route>
+            <Route path={"/checkout"} component={Paypal}></Route>
             <Route
               path={"/productDetails/:id"}
               component={ProductDetails}

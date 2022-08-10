@@ -32,7 +32,10 @@ const Header = () => {
   useEffect(() => {
     var myCartCount = 0;
     for (var i = 0; i < localStorage.length; i++) {
-      if (localStorage.key(i) != "UID") {
+      if (
+        localStorage.key(i) != "UID" &&
+        localStorage.key(i) != "__paypal_storage__"
+      ) {
         myCartCount =
           myCartCount + parseInt(localStorage.getItem(localStorage.key(i)));
         // console.log(myCartCount);
