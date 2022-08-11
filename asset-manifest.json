@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/Jumia-E-Commerce/login/static/css/main.e2d1c411.css",
-    "main.js": "/Jumia-E-Commerce/login/static/js/main.a554d95a.js",
-    "static/js/787.b3f999e4.chunk.js": "/Jumia-E-Commerce/login/static/js/787.b3f999e4.chunk.js",
-    "static/media/flashsales.png": "/Jumia-E-Commerce/login/static/media/flashsales.deb060326bf28e05ef9e.png",
-    "static/media/Jumia-Logo.png": "/Jumia-E-Commerce/login/static/media/Jumia-Logo.8c4109cda88de943a113.png",
-    "static/media/loading.png": "/Jumia-E-Commerce/login/static/media/loading.0dd700a6a6b613bfdb6d.png",
-    "index.html": "/Jumia-E-Commerce/login/index.html",
-    "main.e2d1c411.css.map": "/Jumia-E-Commerce/login/static/css/main.e2d1c411.css.map",
-    "main.a554d95a.js.map": "/Jumia-E-Commerce/login/static/js/main.a554d95a.js.map",
-    "787.b3f999e4.chunk.js.map": "/Jumia-E-Commerce/login/static/js/787.b3f999e4.chunk.js.map"
+    "main.css": "/Jumia-E-Commerce.com/static/css/main.e2d1c411.css",
+    "main.js": "/Jumia-E-Commerce.com/static/js/main.6784cc1b.js",
+    "static/js/787.b3f999e4.chunk.js": "/Jumia-E-Commerce.com/static/js/787.b3f999e4.chunk.js",
+    "static/media/flashsales.png": "/Jumia-E-Commerce.com/static/media/flashsales.deb060326bf28e05ef9e.png",
+    "static/media/Jumia-Logo.png": "/Jumia-E-Commerce.com/static/media/Jumia-Logo.8c4109cda88de943a113.png",
+    "static/media/loading.png": "/Jumia-E-Commerce.com/static/media/loading.0dd700a6a6b613bfdb6d.png",
+    "index.html": "/Jumia-E-Commerce.com/index.html",
+    "main.e2d1c411.css.map": "/Jumia-E-Commerce.com/static/css/main.e2d1c411.css.map",
+    "main.6784cc1b.js.map": "/Jumia-E-Commerce.com/static/js/main.6784cc1b.js.map",
+    "787.b3f999e4.chunk.js.map": "/Jumia-E-Commerce.com/static/js/787.b3f999e4.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e2d1c411.css",
-    "static/js/main.a554d95a.js"
+    "static/js/main.6784cc1b.js"
   ]
 }
