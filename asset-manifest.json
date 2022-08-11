@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e2d1c411.css",
+    "main.js": "/static/js/main.c7d26a9f.js",
+    "static/js/787.b3f999e4.chunk.js": "/static/js/787.b3f999e4.chunk.js",
+    "static/media/flashsales.png": "/static/media/flashsales.deb060326bf28e05ef9e.png",
+    "static/media/Jumia-Logo.png": "/static/media/Jumia-Logo.8c4109cda88de943a113.png",
+    "static/media/loading.png": "/static/media/loading.0dd700a6a6b613bfdb6d.png",
+    "index.html": "/index.html",
+    "main.e2d1c411.css.map": "/static/css/main.e2d1c411.css.map",
+    "main.c7d26a9f.js.map": "/static/js/main.c7d26a9f.js.map",
+    "787.b3f999e4.chunk.js.map": "/static/js/787.b3f999e4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e2d1c411.css",
+    "static/js/main.c7d26a9f.js"
+  ]
+}
