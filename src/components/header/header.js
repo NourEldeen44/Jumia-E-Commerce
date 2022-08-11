@@ -592,28 +592,44 @@ const Header = () => {
               menuVariant="light"
             >
               <NavDropdown.Item
-                href="/category/food"
+                href={
+                  his.location.pathname.includes("/category")
+                    ? "/category/food"
+                    : "category/food"
+                }
                 style={{ textAlign: "initial" }}
               >
                 <FontAwesomeIcon icon={faAppleWhole} />{" "}
                 <span>{lang == "en" ? "Supermarket" : "سوبر ماركت"}</span>
               </NavDropdown.Item>
               <NavDropdown.Item
-                href="category/Fashion"
+                href={
+                  his.location.pathname.includes("/category")
+                    ? "/Fashion"
+                    : "category/Fashion"
+                }
                 style={{ textAlign: "initial" }}
               >
                 <FontAwesomeIcon icon={faShirt} />{" "}
                 <span>{lang == "en" ? "Fashion" : "أزياء"}</span>
               </NavDropdown.Item>
               <NavDropdown.Item
-                href="category/Electronics"
+                href={
+                  his.location.pathname.includes("/category")
+                    ? "/category/Electronics"
+                    : "category/Electronics"
+                }
                 style={{ textAlign: "initial" }}
               >
                 <FontAwesomeIcon icon={faComputer} />{" "}
                 <span>{lang == "en" ? "Electronics" : "إلكترونيات"}</span>
               </NavDropdown.Item>
               <NavDropdown.Item
-                href="category/Gamming"
+                href={
+                  his.location.pathname.includes("/category")
+                    ? "/category/Gamming"
+                    : "category/Gamming"
+                }
                 style={{ textAlign: "initial" }}
               >
                 <FontAwesomeIcon icon={faGamepad} />{" "}
