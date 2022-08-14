@@ -17,6 +17,9 @@ import Footer from "./components/footer/footer";
 import Register from "./pages/auth/register";
 import LogIn from "./pages/auth/logIn";
 import Paypal from "./components/paypal/paypal";
+import Account from "./pages/account/account";
+import Dialog from "./pages/dialog";
+import Favorites from "./pages/favorites/favorites";
 // import { useContext } from "react";
 
 function App() {
@@ -39,7 +42,10 @@ function App() {
             <Route exact path={"/search=:value"} component={Search}></Route>
             <Route path={"/cart"} component={Cart}></Route>
             <Route path={"/category/"} component={category}></Route>
+            <Route path={"/account"} component={Account}></Route>
             <Route path={"/checkout"} component={Paypal}></Route>
+            <Route path={"/fav"} component={Favorites}></Route>
+            {/* <Route path={"/dialog"} component={Dialog}></Route> */}
             <Route
               path={"/productDetails/:id"}
               component={ProductDetails}

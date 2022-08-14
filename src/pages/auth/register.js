@@ -123,7 +123,7 @@ function Register() {
             useremail: usercred.user.email,
             password: user.Password,
             username: user.userName,
-            favourites: "",
+            favourites: [],
             orders: "",
           };
           setDoc(docRef, userData);

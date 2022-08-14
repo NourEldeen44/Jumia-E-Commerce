@@ -1,0 +1,47 @@
+.hoverEffect:hover {
+    background-color: #e9e5e5;
+    /* text-shadow: -.25px -.25px 0 black,
+        .25px .25px black; */
+    font-weight: 500;
+}
+
+.hoverEffect {
+    background-color: white;
+}
+
+.hoverText {
+    color: #f68b1e;
+    text-align: center;
+    padding: 5px;
+}
+
+.hoverText:hover {
+    color: #f68b1e;
+    background-color: #feefde;
+    padding: 5px;
+}
+
+.hoverButton {
+    color: #f68b1e;
+    text-align: center;
+    padding: 7px;
+    border: solid white;
+    background-color: white;
+    width: 170px;
+    border-radius: 10px;
+    font-weight: 600;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.hoverButton:hover {
+    color: #f68b1e;
+    background-color: #feefde;
+    padding: 10px;
+    border: solid white;
+    width: 170px;
+    border-radius: 7px;
+    font-weight: 600;
+    margin-left: 8px;
+    margin-right: 8px;
+}

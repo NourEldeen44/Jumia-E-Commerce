@@ -10,13 +10,16 @@ import { useContext } from "react";
 import { langContext } from "../../contexts/langContext";
 import "./cart.css";
 import Paypal from "../../components/paypal/paypal";
-const Cart = () => {
+
+const Cart = (props) => {
   // const locationre = useLocation()
+  const [showTaskDialog, setShowTaskDialog] = useState(false);
   const { lang, setlang } = useContext(langContext);
   const [cart, setcart] = useState([]);
   const [price, setPrice] = useState(0);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const [checkout, setcheckout] = useState(false);
+
   useEffect(() => {
     handleCart();
     console.log("rendered");
@@ -29,6 +32,8 @@ const Cart = () => {
         !cart.includes(localStorage.key(i)) &&
         localStorage.key(i) != "UID" &&
         localStorage.key(i) != "__paypal_storage__"
+        &&
+        localStorage.key(i) != "favoriteItems"
       ) {
         // myCart.push(`${localStorage.key(i)}`);
         // myCart = [...myCart, `${localStorage.key(i)}`]; Note: Render Problem Cant use this state!!!!!!!!!!!!!!!!!
@@ -52,7 +57,10 @@ const Cart = () => {
       }
     }
   };
+
+
   function deletingItem(product) {
+
     let deleteCart = cart;
 
     for (var i = 0; i < deleteCart.length; i++) {
@@ -68,6 +76,9 @@ const Cart = () => {
     }
 
     alert("deleted");
+
+
+
   }
 
   function totalPriceFun() {
@@ -113,17 +124,19 @@ const Cart = () => {
     }
   }
 
+
+
   return checkout == true ? (
     <Paypal cartValue={price}></Paypal>
   ) : (
     <>
       <div
-        className="cart-main-box"
+        className="cart-main-box row"
         style={{ width: "85vw", marginLeft: "auto", marginRight: "auto" }}
       >
-        <div class="container " style={{ width: "92%" }}>
+        <div class="container col-sm-12 " style={{ width: "92%" }}>
           <div class="row">
-            <div class="col-lg-9 d-flex flex-column">
+            <div class="col-lg-9  col-sm-12 d-flex flex-column">
               <div
                 style={{
                   backgroundColor: "white",
@@ -209,17 +222,17 @@ const Cart = () => {
                                 {" "}
                                 {lang == "en"
                                   ? `${Math.ceil(
-                                      product.price -
-                                        (parseInt(product.price) *
-                                          parseInt(product.offer)) /
-                                          100
-                                    ).toFixed(2)}EGP`
+                                    product.price -
+                                    (parseInt(product.price) *
+                                      parseInt(product.offer)) /
+                                    100
+                                  ).toFixed(2)}EGP`
                                   : `${Math.ceil(
-                                      product.price -
-                                        (parseInt(product.price) *
-                                          parseInt(product.offer)) /
-                                          100
-                                    ).toFixed(2)}جنيه`}{" "}
+                                    product.price -
+                                    (parseInt(product.price) *
+                                      parseInt(product.offer)) /
+                                    100
+                                  ).toFixed(2)}جنيه`}{" "}
                               </div>{" "}
                             </div>
                             <div style={{ display: "flex" }}>
@@ -259,9 +272,7 @@ const Cart = () => {
                           }}
                         >
                           <button
-                            onClick={() => {
-                              deletingItem(product);
-                            }}
+                            onClick={() => { deletingItem(product) }}
                             style={{
                               color: "#F68B1E",
                               fontSize: ".875rem",
@@ -349,7 +360,7 @@ const Cart = () => {
             </div>
 
             <div
-              class="col-lg-3  d-flex flex-column"
+              class="col-lg-3 col-sm-12 d-flex flex-column"
               style={{ backgroundColor: "white", borderRadius: "3px" }}
             >
               <div
@@ -453,7 +464,7 @@ const Cart = () => {
 
       <div
         class="container "
-        style={{ height: "100px", backgroundColor: "#f1f1f1" }}
+        style={{ height: "8px", backgroundColor: "#f1f1f1" }}
       >
         {" "}
       </div>

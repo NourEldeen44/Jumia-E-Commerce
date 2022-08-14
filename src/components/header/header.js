@@ -27,14 +27,21 @@ import "./header.css";
 import { Link, useHistory } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { langContext } from "../../contexts/langContext";
+import { firestore } from "../../firebase";
+import { getDoc, doc } from "@firebase/firestore";
 const Header = () => {
   const [cartCount, setcartCount] = useState(0);
+  const userID = localStorage.getItem("UID");
+  const [userInfo, setUserInfo] = useState({});
   useEffect(() => {
+
     var myCartCount = 0;
     for (var i = 0; i < localStorage.length; i++) {
       if (
         localStorage.key(i) != "UID" &&
         localStorage.key(i) != "__paypal_storage__"
+        &&
+        localStorage.key(i) != "favoriteItems"
       ) {
         myCartCount =
           myCartCount + parseInt(localStorage.getItem(localStorage.key(i)));
@@ -42,6 +49,9 @@ const Header = () => {
       }
     }
     setcartCount(myCartCount);
+    if (localStorage.getItem("UID")) {
+      accountName()
+    }
   }, [localStorage.length]);
   const his = useHistory();
   const { lang, setlang } = useContext(langContext);
@@ -50,8 +60,17 @@ const Header = () => {
   //   his.push(`/category/${category}`);
   //   // window.location.href = `/category/${category}`;
   // };
+  function accountName() {
+    const docRef = doc(firestore, `users/${userID}`);
+    getDoc(docRef).then((res) => {
+      setUserInfo(res.data());
+    })
+  }
 
-  return (
+  function notLoggedIn() {
+    his.replace("/home");
+    alert(" You are not logged in!")
+  } return (
     <div
       className="header-main"
       style={{
@@ -204,7 +223,7 @@ const Header = () => {
             </form>
             <div
               className="collapse navbar-collapse flex-grow-0"
-              // id="navbarSupportedContent"
+            // id="navbarSupportedContent"
             >
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item dropdown">
@@ -224,7 +243,11 @@ const Header = () => {
                           : { marginRight: "15px" }
                       }
                     >
-                      {lang == "en" ? "Account" : "الحساب"}
+                      {localStorage.getItem("UID") && <span> Hi, {userInfo.username} </span>}
+                      {!localStorage.getItem("UID") &&
+                        < span > {lang == "en" ? "Account" : "الحساب"} </span>
+                      }
+
                     </span>
                   </a>
                   <ul
@@ -232,14 +255,25 @@ const Header = () => {
                     aria-labelledby="AccountDropdown"
                   >
                     <li className="d-flex align-items-center mt-2">
-                      <button
+                      {localStorage.getItem("UID") && <button
+                        className="sign btn search-button  text-white mx-auto w-75"
+                        onClick={() => {
+                          localStorage.removeItem("UID")
+                          his.replace("/login");
+                          window.location.reload();
+                        }}
+                      >
+                        {lang == "en" ? "Sign Out" : "تسجيل الخروج"}
+                      </button>
+                      }
+                      {!localStorage.getItem("UID") && <button
                         className="sign btn search-button  text-white mx-auto w-75"
                         onClick={() => {
                           his.push("/login");
                         }}
                       >
                         {lang == "en" ? "Sign In" : "تسجيل الدخول"}
-                      </button>
+                      </button>}
                     </li>
                     <li>
                       <hr className="dropdown-divider" />
@@ -248,7 +282,15 @@ const Header = () => {
                       <a className="dropdown-item" href="#">
                         <FontAwesomeIcon icon={faUser} color="black" />
                         <span style={{ padding: "5px" }}>
-                          {lang == "en" ? "My Account" : "حسابي"}
+                          {
+                            localStorage.getItem("UID") && <Link to="/account" style={{ textDecoration: "none", color: 'black' }}> {lang == "en" ? "My Account" : "حسابي"}</Link>
+                          }
+                          {
+                            !localStorage.getItem("UID") && <Link style={{ textDecoration: "none", color: 'black' }} onClick={() => {
+                              notLoggedIn();
+                            }}> {lang == "en" ? "My Account" : "حسابي"} </Link>
+                          }
+
                         </span>
                       </a>
                     </li>
@@ -371,10 +413,10 @@ const Header = () => {
                         cartCount != 0 && lang == "en"
                           ? { visibility: "visible", left: "30%", right: "0%" }
                           : cartCount != 0 && lang == "ar"
-                          ? { visibility: "visible", left: "0%", right: "5%" }
-                          : cartCount == 0
-                          ? { visibility: "hidden" }
-                          : {}
+                            ? { visibility: "visible", left: "0%", right: "5%" }
+                            : cartCount == 0
+                              ? { visibility: "hidden" }
+                              : {}
                       }
                     >
                       {cartCount}
@@ -383,15 +425,15 @@ const Header = () => {
                       style={
                         lang == "en"
                           ? {
-                              marginLeft: "15px",
-                              display: "flex",
-                              flexWrap: "nowrap",
-                            }
+                            marginLeft: "15px",
+                            display: "flex",
+                            flexWrap: "nowrap",
+                          }
                           : {
-                              marginRight: "15px",
-                              display: "flex",
-                              flexWrap: "nowrap",
-                            }
+                            marginRight: "15px",
+                            display: "flex",
+                            flexWrap: "nowrap",
+                          }
                       }
                     >
                       {lang == "en" ? "Cart" : "السلة"}
@@ -622,8 +664,8 @@ const Header = () => {
             </NavDropdown>
           </div>
         </nav>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
 
