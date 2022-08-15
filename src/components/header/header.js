@@ -592,45 +592,41 @@ const Header = () => {
               menuVariant="light"
             >
               <NavDropdown.Item
-                href={
-                  his.location.pathname.includes("/category")
-                    ? "/category/food"
-                    : "category/food"
-                }
                 style={{ textAlign: "initial" }}
+                onClick={() => {
+                  his.push("/category/food");
+                  // window.location.reload();
+                }}
               >
                 <FontAwesomeIcon icon={faAppleWhole} />{" "}
                 <span>{lang == "en" ? "Supermarket" : "سوبر ماركت"}</span>
               </NavDropdown.Item>
               <NavDropdown.Item
-                href={
-                  his.location.pathname.includes("/category")
-                    ? "/Fashion"
-                    : "category/Fashion"
-                }
                 style={{ textAlign: "initial" }}
+                onClick={() => {
+                  his.push("/category/fashion");
+                  // window.location.reload();
+                }}
               >
                 <FontAwesomeIcon icon={faShirt} />{" "}
                 <span>{lang == "en" ? "Fashion" : "أزياء"}</span>
               </NavDropdown.Item>
               <NavDropdown.Item
-                href={
-                  his.location.pathname.includes("/category")
-                    ? "/category/Electronics"
-                    : "category/Electronics"
-                }
                 style={{ textAlign: "initial" }}
+                onClick={() => {
+                  his.push("/category/electronics");
+                  // window.location.reload();
+                }}
               >
                 <FontAwesomeIcon icon={faComputer} />{" "}
                 <span>{lang == "en" ? "Electronics" : "إلكترونيات"}</span>
               </NavDropdown.Item>
               <NavDropdown.Item
-                href={
-                  his.location.pathname.includes("/category")
-                    ? "/category/Gamming"
-                    : "category/Gamming"
-                }
                 style={{ textAlign: "initial" }}
+                onClick={() => {
+                  his.push("/category/gamming");
+                  // window.location.reload();
+                }}
               >
                 <FontAwesomeIcon icon={faGamepad} />{" "}
                 <span>{lang == "en" ? "Gamming" : "ألعاب"}</span>

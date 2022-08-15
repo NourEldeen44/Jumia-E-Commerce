@@ -20,6 +20,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 const Category = () => {
+  const location = useLocation();
   var history = useHistory();
   console.log(history);
   const [products, setproducts] = useState([]);
@@ -29,6 +30,7 @@ const Category = () => {
   console.log(cat.toLowerCase());
   const prdIDS = [];
   useEffect(() => {
+    setproducts([]);
     const colRef = collection(firestore, "products");
     var searchcatquery = query(
       colRef,
@@ -49,7 +51,7 @@ const Category = () => {
         });
       }
     });
-  }, []);
+  }, [location]);
 
   return (
     <div className="cardBox">

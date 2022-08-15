@@ -3,6 +3,11 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { useState, useEffect, useRef } from "react";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  updateEmail,
+} from "@firebase/auth";
 import { useInViewport } from "react-in-viewport";
 import { Link } from "react-router-dom";
 import SaleCarousel from "../../components/salescarousel/saleCarousel";

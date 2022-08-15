@@ -32,6 +32,7 @@ function App() {
           <Header />
           <Switch>
             <Route exact path={"/"} component={Home}></Route>
+            <Route exact path={"/Jumia-E-Commerce"} component={Home}></Route>
             <Route exact path={"/home"} component={Home}></Route>
             <Route exact path={"/register"} component={Register}></Route>
             <Route exact path={"/login"} component={LogIn}></Route>
