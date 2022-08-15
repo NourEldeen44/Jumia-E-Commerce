@@ -120,7 +120,7 @@ function Account(props) {
 
                                     paddingTop: '10px'
                                 }}
-                                > <span class="hoverText p-2" onClick={() => { setShowTaskDialog(true) }}>{lang == "en" ? "Sign Out" : "تسجيل الخروج "}{" "} </span>
+                                > <span class="hoverText p-2" style={{cursor:"pointer"}} onClick={() => { setShowTaskDialog(true) }}>{lang == "en" ? "Sign Out" : "تسجيل الخروج "}{" "} </span>
                                     <Dialog show={showTaskDialog}
                                         confirm={confirm}
                                         cancel={cancel}
