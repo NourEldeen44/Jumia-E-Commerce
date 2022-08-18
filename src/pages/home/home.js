@@ -125,6 +125,7 @@ const Home = () => {
         const country = val["country_name"];
         const city = val["city"];
         const region = val["region"];
+        const utcoffset = val["utc_offset"];
         const docRef = doc(firestore, `views/${ip}`);
         // console.log(country);
         // console.log(city);
@@ -136,6 +137,7 @@ const Home = () => {
               country: country,
               city: city,
               region: region,
+              lastVisit: new Date(),
             })
               .then(
                 () => {}
@@ -148,6 +150,7 @@ const Home = () => {
               country: country,
               city: city,
               region: region,
+              lastVisit: new Date().toUTCString(),
             })
               .then(
                 () => {}
