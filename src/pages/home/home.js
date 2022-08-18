@@ -115,9 +115,57 @@ const Home = () => {
     { imgurl: loadingImage },
     { imgurl: loadingImage },
   ];
+  //get device IP Address
+  const [firstLoad, setFirstLoad] = useState(true);
+  const trackDevice = async () => {
+    setFirstLoad(false);
+    await fetch("https://ipapi.co/json/").then((res) => {
+      res.json().then((val) => {
+        const ip = val["ip"];
+        const country = val["country_name"];
+        const city = val["city"];
+        const region = val["region"];
+        const docRef = doc(firestore, `views/${ip}`);
+        // console.log(country);
+        // console.log(city);
+        // console.log(region);
+        getDoc(docRef).then((res) => {
+          if (res.data() != null) {
+            updateDoc(docRef, {
+              visits: res.data()["visits"] + 1,
+              country: country,
+              city: city,
+              region: region,
+            })
+              .then(
+                () => {}
+                // alert(`success and visits are ${res.data()["visits"] + 1}`)
+              )
+              .catch((err) => console.log(err));
+          } else {
+            setDoc(docRef, {
+              visits: 1,
+              country: country,
+              city: city,
+              region: region,
+            })
+              .then(
+                () => {}
+                // alert(`success and visits are ${1}`)
+              )
+              .catch((err) => console.log(err));
+          }
+        });
+      });
+    });
+  };
   //Rendering
   const prdIDS = [];
   useEffect(() => {
+    if (firstLoad) {
+      trackDevice();
+    }
+
     //last added products Render
     if (lastProductsInviewPort.inViewport && lastProducts.length == 0) {
       //console.log("last function achieved");
@@ -256,7 +304,7 @@ const Home = () => {
               //   { ...res.data(), productID: res.id },
               // ]); Note Dont Use Causing render issue
               setproducts(myPrds);
-              console.log(lastProducts);
+              // console.log(lastProducts);
               productsIDS.push(res.id);
             }
           });
