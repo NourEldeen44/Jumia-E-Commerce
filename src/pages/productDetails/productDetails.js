@@ -19,8 +19,7 @@ function ProductDetails(props) {
     const docRef = doc(firestore, `products/${productID}`);
     getDoc(docRef).then((res) => {
       setProductData(res.data());
-      console.log(res)
-
+      // console.log(productData["keyfeatures"][0]);
     });
     mainRef.current.scrollIntoView();
   }, []);
@@ -41,14 +40,10 @@ function ProductDetails(props) {
   //         localStorage.setItem('favoriteItems', JSON.stringify(favorites))
   //       }
 
-
   //     }
   //   }
 
-
-
   // }
-
 
   return (
     <>
@@ -61,9 +56,9 @@ function ProductDetails(props) {
         >
           <div
             class="container border1 justify-content-center d-flex flex-row ps-3 pe-3 pt-5"
-          // style={{ width: "80%" }}
+            // style={{ width: "80%" }}
           >
-            <div class='row '>
+            <div class="row ">
               <div class="leftSide border1 col-md-8 d-flex flex-column p-2">
                 <small class="text-start pb-2">
                   {" "}
@@ -136,25 +131,6 @@ function ProductDetails(props) {
                                     : "المتجر الرسمي"}
                                 </small>
                               </p>
-
-                              <span class="iconHoverSpan">
-                                <div class="iconHover">
-                                  {" "}
-                                  <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    width="20"
-                                    height="20"
-                                    fill="currentColor"
-                                    class="bi bi-suit-heart"
-                                    viewBox="0 0 16 16"
-                                  >
-                                    <path d="m8 6.236-.894-1.789c-.222-.443-.607-1.08-1.152-1.595C5.418 2.345 4.776 2 4 2 2.324 2 1 3.326 1 4.92c0 1.211.554 2.066 1.868 3.37.337.334.721.695 1.146 1.093C5.122 10.423 6.5 11.717 8 13.447c1.5-1.73 2.878-3.024 3.986-4.064.425-.398.81-.76 1.146-1.093C14.446 6.986 15 6.131 15 4.92 15 3.326 13.676 2 12 2c-.777 0-1.418.345-1.954.852-.545.515-.93 1.152-1.152 1.595L8 6.236zm.392 8.292a.513.513 0 0 1-.784 0c-1.601-1.902-3.05-3.262-4.243-4.381C1.3 8.208 0 6.989 0 4.92 0 2.755 1.79 1 4 1c1.6 0 2.719 1.05 3.404 2.008.26.365.458.716.596.992a7.55 7.55 0 0 1 .596-.992C9.281 2.049 10.4 1 12 1c2.21 0 4 1.755 4 3.92 0 2.069-1.3 3.288-3.365 5.227-1.193 1.12-2.642 2.48-4.243 4.38z" />
-                                  </svg>
-                                  {/* <span onClick={() => {
-                                  addtoFavorites(productID);
-                                }}>heart</span> */}
-                                </div>
-                              </span>
                             </div>
                             <h5 class="">
                               {lang == "en"
@@ -266,17 +242,17 @@ function ProductDetails(props) {
                               {" "}
                               {lang == "en"
                                 ? `${Math.ceil(
-                                  productData.price -
-                                  (parseInt(productData.price) *
-                                    parseInt(productData.offer)) /
-                                  100
-                                ).toFixed(2)}EGP`
+                                    productData.price -
+                                      (parseInt(productData.price) *
+                                        parseInt(productData.offer)) /
+                                        100
+                                  ).toFixed(2)}EGP`
                                 : `${Math.ceil(
-                                  productData.price -
-                                  (parseInt(productData.price) *
-                                    parseInt(productData.offer)) /
-                                  100
-                                ).toFixed(2)}جنيه`}{" "}
+                                    productData.price -
+                                      (parseInt(productData.price) *
+                                        parseInt(productData.offer)) /
+                                        100
+                                  ).toFixed(2)}جنيه`}{" "}
                             </h3>
                             <div class="d-flex">
                               <p
@@ -311,9 +287,10 @@ function ProductDetails(props) {
                                 !localStorage.getItem(productID)
                                   ? "1"
                                   : (
-                                    parseInt(localStorage.getItem(productID)) +
-                                    1
-                                  ).toString()
+                                      parseInt(
+                                        localStorage.getItem(productID)
+                                      ) + 1
+                                    ).toString()
                               );
                               alert(productID + "was added");
                             }}
@@ -491,20 +468,24 @@ function ProductDetails(props) {
                             : "المواصفات الرئيسية"}{" "}
                         </p>
                         <p>
-                          {/* we should loop here when we get the details from firebase
-                                            <ul>
-
-                                                {productData.length !== 0 ? productData.keyfeatures.map((keyf) => {
-                                                    return (
-                                                        <li style={{ textAlign: 'start' }}>{keyf} </li>)
-
-
-                                                }) : "N/A"}
-                                            </ul> */}
-                          <p class="ps-1">N/A</p>
+                          {/* we should loop here when we get the details from firebase */}
+                          <ul>
+                            {productData["keyfeatures"]
+                              ? productData["keyfeatures"].map(
+                                  (keyf, index) => {
+                                    if (index <= 3) {
+                                      return (
+                                        <li style={{ textAlign: "start" }}>
+                                          {keyf}{" "}
+                                        </li>
+                                      );
+                                    }
+                                  }
+                                )
+                              : "N/A"}
+                          </ul>
                         </p>
                       </div>
-
                       <div
                         style={{
                           border: "solid 2px #f0f0f0",
@@ -532,7 +513,12 @@ function ProductDetails(props) {
                           <div style={{ fontWeight: "700" }}>
                             {lang == "en" ? "SKU" : "وحده حفظ المنتج"}{" "}
                           </div>
-                          <div style={{ paddingLeft: "4px", wordBreak: 'break-all' }}>
+                          <div
+                            style={{
+                              paddingLeft: "4px",
+                              wordBreak: "break-all",
+                            }}
+                          >
                             {productData.unicode !== ""
                               ? productData.unicode
                               : "N/A"}
@@ -544,7 +530,9 @@ function ProductDetails(props) {
                             {lang == "en" ? "Model:" : "الموديل:"}{" "}
                           </div>
                           <div style={{ paddingLeft: "4px" }}>
-                            {productData.model !== "" ? productData.model : "N/A"}
+                            {productData.model !== ""
+                              ? productData.model
+                              : "N/A"}
                           </div>
                         </div>
 
@@ -553,7 +541,9 @@ function ProductDetails(props) {
                             {lang == "en" ? "Color:" : "اللون: "}{" "}
                           </div>
                           <div style={{ paddingLeft: "4px" }}>
-                            {productData.color !== "" ? productData.color : "N/A"}
+                            {productData.color !== ""
+                              ? productData.color
+                              : "N/A"}
                           </div>
                         </div>
 
@@ -624,7 +614,8 @@ function ProductDetails(props) {
                     class="card p-3  bg-body rounded  ps-1"
                     style={{ width: "100%;" }}
                   >
-                    <h5 id="feedback"
+                    <h5
+                      id="feedback"
                       style={{
                         textAlign: "start",
                         paddingLeft: "10px",
@@ -670,21 +661,25 @@ function ProductDetails(props) {
                         {lang == "en" ? "SEE ALL" : "عرض الكل"} &gt;{" "}
                       </p>
                     </div>
-                    <div class='container'
-                    // style={{
-                    //   display: "flex",
-                    //   width: "100%",
-                    //   justifyContent: "space-around",
-                    //   padding: "8px",
-                    // }}
+                    <div
+                      class="container"
+                      // style={{
+                      //   display: "flex",
+                      //   width: "100%",
+                      //   justifyContent: "space-around",
+                      //   padding: "8px",
+                      // }}
                     >
-                      <div class='row' style={{
-                        display: "flex",
-                        width: "100%",
-                        justifyContent: "space-around",
-                        padding: "8px",
-                      }}>
-                        <div class='col-md-3 '>
+                      <div
+                        class="row"
+                        style={{
+                          display: "flex",
+                          width: "100%",
+                          justifyContent: "space-around",
+                          padding: "8px",
+                        }}
+                      >
+                        <div class="col-md-3 ">
                           <p
                             style={{
                               fontSize: ".875rem",
@@ -813,12 +808,17 @@ function ProductDetails(props) {
                             }}
                           >
                             <div style={{ display: "flex" }}>
-                              <div style={{ fontWeight: "500", paddingTop: "2px" }}>
+                              <div
+                                style={{ fontWeight: "500", paddingTop: "2px" }}
+                              >
                                 {" "}
                                 5{" "}
                               </div>
                               <div
-                                style={{ fontWeight: "500", paddingLeft: "5px" }}
+                                style={{
+                                  fontWeight: "500",
+                                  paddingLeft: "5px",
+                                }}
                               >
                                 {" "}
                                 <span>
@@ -865,12 +865,17 @@ function ProductDetails(props) {
                             }}
                           >
                             <div style={{ display: "flex" }}>
-                              <div style={{ fontWeight: "500", paddingTop: "2px" }}>
+                              <div
+                                style={{ fontWeight: "500", paddingTop: "2px" }}
+                              >
                                 {" "}
                                 4{" "}
                               </div>
                               <div
-                                style={{ fontWeight: "500", paddingLeft: "5px" }}
+                                style={{
+                                  fontWeight: "500",
+                                  paddingLeft: "5px",
+                                }}
                               >
                                 {" "}
                                 <span>
@@ -917,12 +922,17 @@ function ProductDetails(props) {
                             }}
                           >
                             <div style={{ display: "flex" }}>
-                              <div style={{ fontWeight: "500", paddingTop: "2px" }}>
+                              <div
+                                style={{ fontWeight: "500", paddingTop: "2px" }}
+                              >
                                 {" "}
                                 3{" "}
                               </div>
                               <div
-                                style={{ fontWeight: "500", paddingLeft: "5px" }}
+                                style={{
+                                  fontWeight: "500",
+                                  paddingLeft: "5px",
+                                }}
                               >
                                 {" "}
                                 <span>
@@ -969,12 +979,17 @@ function ProductDetails(props) {
                             }}
                           >
                             <div style={{ display: "flex" }}>
-                              <div style={{ fontWeight: "500", paddingTop: "2px" }}>
+                              <div
+                                style={{ fontWeight: "500", paddingTop: "2px" }}
+                              >
                                 {" "}
                                 2{" "}
                               </div>
                               <div
-                                style={{ fontWeight: "500", paddingLeft: "5px" }}
+                                style={{
+                                  fontWeight: "500",
+                                  paddingLeft: "5px",
+                                }}
                               >
                                 {" "}
                                 <span>
@@ -1021,12 +1036,17 @@ function ProductDetails(props) {
                             }}
                           >
                             <div style={{ display: "flex" }}>
-                              <div style={{ fontWeight: "500", paddingTop: "2px" }}>
+                              <div
+                                style={{ fontWeight: "500", paddingTop: "2px" }}
+                              >
                                 {" "}
                                 1{" "}
                               </div>
                               <div
-                                style={{ fontWeight: "500", paddingLeft: "5px" }}
+                                style={{
+                                  fontWeight: "500",
+                                  paddingLeft: "5px",
+                                }}
                               >
                                 {" "}
                                 <span>
@@ -1064,7 +1084,7 @@ function ProductDetails(props) {
                           </div>
                         </div>
 
-                        <div class='col-md-9'>
+                        <div class="col-md-9">
                           <p
                             style={{
                               fontSize: ".875rem",
@@ -1184,7 +1204,10 @@ function ProductDetails(props) {
                                   {" "}
                                   20-07-2022{" "}
                                 </div>
-                                <div> {lang == "en" ? "By" : "بواسطه"} Marwa </div>
+                                <div>
+                                  {" "}
+                                  {lang == "en" ? "By" : "بواسطه"} Marwa{" "}
+                                </div>
                               </div>
                               <div
                                 style={{
@@ -1206,7 +1229,9 @@ function ProductDetails(props) {
                                   <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
                                   <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
                                 </svg>{" "}
-                                {lang == "en" ? "Verified Purchase" : "شراء موثق"}
+                                {lang == "en"
+                                  ? "Verified Purchase"
+                                  : "شراء موثق"}
                               </div>
                             </div>
                           </div>
@@ -1314,7 +1339,10 @@ function ProductDetails(props) {
                                   {" "}
                                   20-07-2022{" "}
                                 </div>
-                                <div> {lang == "en" ? "By" : "بواسطه"} Mariam </div>
+                                <div>
+                                  {" "}
+                                  {lang == "en" ? "By" : "بواسطه"} Mariam{" "}
+                                </div>
                               </div>
                               <div
                                 style={{
@@ -1336,7 +1364,9 @@ function ProductDetails(props) {
                                   <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
                                   <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
                                 </svg>{" "}
-                                {lang == "en" ? "Verified Purchase" : "شراء موثق"}
+                                {lang == "en"
+                                  ? "Verified Purchase"
+                                  : "شراء موثق"}
                               </div>
                             </div>
                           </div>
@@ -1467,7 +1497,9 @@ function ProductDetails(props) {
                                   <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z" />
                                   <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z" />
                                 </svg>{" "}
-                                {lang == "en" ? "Verified Purchase" : "شراء موثق"}
+                                {lang == "en"
+                                  ? "Verified Purchase"
+                                  : "شراء موثق"}
                               </div>
                             </div>
                           </div>
@@ -1845,10 +1877,15 @@ function ProductDetails(props) {
                         {lang == "en" ? "Jumia " : "جوميا"}
                       </div>
                       <div style={{ fontSize: ".75rem" }}>
-                        {lang == "en" ? "100% Seller Score" : " 100%تقييم البائع"}
+                        {lang == "en"
+                          ? "100% Seller Score"
+                          : " 100%تقييم البائع"}
                       </div>
                     </div>
-                    <a href="" style={{ color: "black", textDecoration: "none" }}>
+                    <a
+                      href=""
+                      style={{ color: "black", textDecoration: "none" }}
+                    >
                       {" "}
                       &gt;
                     </a>
@@ -1861,7 +1898,9 @@ function ProductDetails(props) {
                   <div style={{ textAlign: "start", width: "100%" }}>
                     <div style={{ fontSize: ".875rem", fontWeight: "500" }}>
                       {" "}
-                      {lang == "en" ? "Have one to sell?" : "هل لديك منتج للبيع"}
+                      {lang == "en"
+                        ? "Have one to sell?"
+                        : "هل لديك منتج للبيع"}
                     </div>
                     <div style={{ fontSize: ".75rem" }}>
                       {lang == "en"
@@ -1892,8 +1931,9 @@ function ProductDetails(props) {
                           />
                         </svg>
                       </span>
-                      <a href='#details'>
-                        {lang == "en" ? "Product details" : "مواصفات المنتج"}{" "} </a>
+                      <a href="#details">
+                        {lang == "en" ? "Product details" : "مواصفات المنتج"}{" "}
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -1916,8 +1956,10 @@ function ProductDetails(props) {
                           <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z" />
                         </svg>
                       </span>
-                      <a href="#speci"> {lang == "en" ? "Specifications" : "المواصفات"}{" "} </a>
-
+                      <a href="#speci">
+                        {" "}
+                        {lang == "en" ? "Specifications" : "المواصفات"}{" "}
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -1943,7 +1985,8 @@ function ProductDetails(props) {
                       <a href="#feedback">
                         {lang == "en"
                           ? "Verified Customer Feedback"
-                          : "اراء العملاء الموثقه"} </a>
+                          : "اراء العملاء الموثقه"}{" "}
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -1959,7 +2002,9 @@ function ProductDetails(props) {
                         : "أسئلة حول هذا المنتج؟"}
                     </div>
                     <button class="buttonHover" style={{ textAlign: "center" }}>
-                      <span style={{ paddingRight: "8px", textAlign: "center" }}>
+                      <span
+                        style={{ paddingRight: "8px", textAlign: "center" }}
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="20"
