@@ -31,8 +31,7 @@ const Cart = (props) => {
       if (
         !cart.includes(localStorage.key(i)) &&
         localStorage.key(i) != "UID" &&
-        localStorage.key(i) != "__paypal_storage__"
-        &&
+        localStorage.key(i) != "__paypal_storage__" &&
         localStorage.key(i) != "favoriteItems"
       ) {
         // myCart.push(`${localStorage.key(i)}`);
@@ -58,9 +57,7 @@ const Cart = (props) => {
     }
   };
 
-
   function deletingItem(product) {
-
     let deleteCart = cart;
 
     for (var i = 0; i < deleteCart.length; i++) {
@@ -76,9 +73,6 @@ const Cart = (props) => {
     }
 
     alert("deleted");
-
-
-
   }
 
   function totalPriceFun() {
@@ -123,8 +117,6 @@ const Cart = (props) => {
       }
     }
   }
-
-
 
   return checkout == true ? (
     <Paypal cartValue={price}></Paypal>
@@ -222,17 +214,17 @@ const Cart = (props) => {
                                 {" "}
                                 {lang == "en"
                                   ? `${Math.ceil(
-                                    product.price -
-                                    (parseInt(product.price) *
-                                      parseInt(product.offer)) /
-                                    100
-                                  ).toFixed(2)}EGP`
+                                      product.price -
+                                        (parseInt(product.price) *
+                                          parseInt(product.offer)) /
+                                          100
+                                    ).toFixed(2)}EGP`
                                   : `${Math.ceil(
-                                    product.price -
-                                    (parseInt(product.price) *
-                                      parseInt(product.offer)) /
-                                    100
-                                  ).toFixed(2)}جنيه`}{" "}
+                                      product.price -
+                                        (parseInt(product.price) *
+                                          parseInt(product.offer)) /
+                                          100
+                                    ).toFixed(2)}جنيه`}{" "}
                               </div>{" "}
                             </div>
                             <div style={{ display: "flex" }}>
@@ -272,7 +264,9 @@ const Cart = (props) => {
                           }}
                         >
                           <button
-                            onClick={() => { deletingItem(product) }}
+                            onClick={() => {
+                              deletingItem(product);
+                            }}
                             style={{
                               color: "#F68B1E",
                               fontSize: ".875rem",
@@ -445,7 +439,11 @@ const Cart = (props) => {
                 }}
                 //checkout width paypal
                 onClick={() => {
-                  setcheckout(true);
+                  if (localStorage.getItem("UID")) {
+                    setcheckout(true);
+                  } else {
+                    alert("You must Login First!");
+                  }
                 }}
               >
                 <span style={{ fontSize: ".875rem", fontWeight: "500" }}>
