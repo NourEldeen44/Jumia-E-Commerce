@@ -126,9 +126,12 @@ function Register() {
             favourites: [],
             orders: "",
           };
-          setDoc(docRef, userData);
-          localStorage.setItem("UID", usercred.user.uid);
-          window.location.reload();
+          setDoc(docRef, userData)
+            .then((res) => {
+              localStorage.setItem("UID", usercred.user.uid);
+              window.location.reload();
+            })
+            .catch((err) => alert(err));
         })
         .catch((err) => {
           alert(err);
