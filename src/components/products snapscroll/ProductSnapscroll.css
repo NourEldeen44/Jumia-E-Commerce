@@ -39,17 +39,23 @@
     position: absolute;
     visibility: hidden;
 }
-.nxt-btn{
-    left: 9%;
-    z-index: 2;
-}
-.prv-btn{
-    right: 9%;
-    z-index: 2;
-}
+
 .product-scroll-Btn:hover{
     background-color: gray;
 }
+    .snap-scroll-box{
+        position: relative;
+    }
+    .nxt-btn{
+        left: 0;
+        z-index: 2;
+    }
+    .prv-btn{
+        right: 0;
+        z-index: 2;
+    }
+
+
 @media screen and (max-width:900px) {
     .product-snap-child .card{
         width: 20vw !important;
